@@ -43,9 +43,7 @@ a:hover,a:active{
   font-size: 28px;
   vertical-align: middle;
 }
-.pager{
-  /*background: url("images/bg.jpg") repeat-x top;*/
-}
+
 .footer{
   text-align: center;
 }
@@ -56,11 +54,7 @@ a:hover,a:active{
   margin: 0 auto;
   max-width: 1024px;
 }
-.pager-inner{
-  /*background-image: url("../Images/bg.jpg");
-  background-repeat: repeat-x;
-  background-position: top;*/
-}
+
 .header-nav{
   margin-top: 10px;
   padding: 0 20px;
@@ -69,9 +63,6 @@ a:hover,a:active{
   background-color: #052950;
   color:white;
   border-radius: 5px;
-  /*background-image: url("../Images/bg-nav.jpg");
-  background-repeat: repeat-x;
-  border-radius: 5px;*/
 }
 .header-nav a{
   color: white;
@@ -81,6 +72,10 @@ a:hover,a:active{
   content: " ";
   display: table;
   clear: both;
+}
+.pager-inner > .row{
+  padding: 10px;
+  background-color: white;
 }
 /*:start title*/
 .title-x{
