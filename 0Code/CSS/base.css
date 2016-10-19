@@ -246,6 +246,7 @@ a:hover,a:active{
   padding: 30px;
   background-color: #f6f9fd;
   border: 1px solid #a0d0fa;
+  border-radius: 10px;
 }
 .section-article-header{
   margin:20px;
