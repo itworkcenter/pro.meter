@@ -128,15 +128,10 @@ a:hover,a:active{
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 .list.is-inline > li{
   display: inline;
-}
-.list.is-botton > li{
-  float: left;
-  padding: 5px;
-  width: 50%;
-  box-sizing: border-box;
 }
 .list.is-botton > li>a{
   display: block;
