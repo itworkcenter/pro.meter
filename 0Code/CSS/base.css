@@ -280,6 +280,33 @@ a:hover,a:active{
 }
 .path-x > ul > li > a{
   color: #666;
+  font-size: 12px;
+}
+/*:start paging*/
+.paging{}
+
+.paging-pre,
+.paging-next,
+.paging-first,
+.paging-last,
+.paging-info,
+.paging-num,
+.paging-num li{
+  display: inline-block;
+}
+.paging-first,
+.paging-last,
+.paging-pre,
+.paging-next,
+.paging-num li{
+  border: 1px solid #eee;
+}
+.paging a{
+  display: block;
+  padding: 2px 10px;
+}
+.paging a:hover{
+  background-color: #eee;
 }
 /*:start compatible*/
 .swiper-container{
