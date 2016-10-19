@@ -137,6 +137,13 @@ a:hover,a:active{
   width: 50%;
   box-sizing: border-box;
 }
+.list.is-botton > li>a{
+  display: block;
+  padding: 3px 5px;
+  border-radius: 3px;
+  background-color: #eee;
+  text-align: center;
+}
 /*:end list*/
 
 /*:start row*/
