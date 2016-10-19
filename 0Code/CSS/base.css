@@ -29,8 +29,18 @@ a:hover,a:active{
   font-size: 28px;
   color:white;
 }
-.header-logo > img{
+.header-logo-img{
+  display: inline-block;
   max-height: 50px;
+  vertical-align: middle;
+}
+.header-logo-img > img{
+  height:50px;
+}
+.header-logo-title{
+  display: inline-block;
+  font-size: 28px;
+  vertical-align: middle;
 }
 .pager{
   /*background: url("images/bg.jpg") repeat-x top;*/
