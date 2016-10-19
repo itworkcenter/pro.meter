@@ -144,6 +144,18 @@ a:hover,a:active{
   background-color: #eee;
   text-align: center;
 }
+.list.is-menu > li{
+  padding: 0;
+}
+.list.is-menu > li a{
+  display: inline-block;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.list.is-menu > li a:hover{
+  font-weight: bold;
+  background-color: #075780;
+}
 /*:end list*/
 
 /*:start row*/
