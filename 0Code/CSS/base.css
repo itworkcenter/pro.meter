@@ -1,12 +1,12 @@
 body {
+  font-family: Arial, sans-serif, "Helvetica Neue", Helvetica, Gotham;
   font-size: 13px;
-  /*background-color: #F0F5F9;*/
-  background-image: url("../images/bg-long.jpg");
+  background-image: url("../Images/bg-long.jpg");
   background-repeat: repeat-x;;
   background-position: top;
 }
 .body-inner {
-  background-image: url("../images/bg-big.jpg");
+  background-image: url("../Images/bg-big.jpg");
   background-repeat: no-repeat;
   background-position: top center;
 }
@@ -29,6 +29,9 @@ a:hover,a:active{
   font-size: 28px;
   color:white;
 }
+.header-logo > img{
+  max-height: 50px;
+}
 .pager{
   /*background: url("images/bg.jpg") repeat-x top;*/
 }
@@ -43,7 +46,7 @@ a:hover,a:active{
   max-width: 1024px;
 }
 .pager-inner{
-  /*background-image: url("../images/bg.jpg");
+  /*background-image: url("../Images/bg.jpg");
   background-repeat: repeat-x;
   background-position: top;*/
 }
@@ -55,7 +58,7 @@ a:hover,a:active{
   background-color: #052950;
   color:white;
   border-radius: 5px;
-  /*background-image: url("../images/bg-nav.jpg");
+  /*background-image: url("../Images/bg-nav.jpg");
   background-repeat: repeat-x;
   border-radius: 5px;*/
 }
@@ -99,7 +102,7 @@ a:hover,a:active{
   font-size:12px;
 }
 .block-x-body{
-  padding: 0 10px;
+  padding: 10px;
 }
 /*public*/
 /*:start list*/
@@ -109,7 +112,11 @@ a:hover,a:active{
   clear: both;
 }
 .list > li{
-  padding: 2px 4px;
+  padding: 5px;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .list.is-inline > li{
   display: inline;
