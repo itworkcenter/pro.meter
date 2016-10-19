@@ -19,6 +19,13 @@ a:hover,a:active{
   text-decoration: underline;
 }
 /*structure*/
+.header-inner,
+.pager-inner,
+.footer-inner{
+  padding: 5px 20px;
+  margin: 0 auto;
+  max-width: 1024px;
+}
 .header *{
   color: white;
 }
@@ -43,17 +50,17 @@ a:hover,a:active{
   font-size: 28px;
   vertical-align: middle;
 }
-
 .footer{
   text-align: center;
 }
-.header-inner,
-.pager-inner,
-.footer-inner{
-  padding: 5px 20px;
-  margin: 0 auto;
-  max-width: 1024px;
+.footer *{
+  color: #666;
 }
+.footer-inner{
+  padding:20px;
+  background-color: #eee;
+}
+
 
 .header-nav{
   margin-top: 10px;
