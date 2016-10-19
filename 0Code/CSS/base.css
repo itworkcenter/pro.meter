@@ -4,6 +4,7 @@ body {
   background-image: url("../Images/bg-long.jpg");
   background-repeat: repeat-x;;
   background-position: top;
+  line-height: 1.5;
 }
 .body-inner {
   background-image: url("../Images/bg-big.jpg");
@@ -237,13 +238,15 @@ a:hover,a:active{
 .col-1 {
     width: 8.3333%;
 }
+.article{}
+.article p{
+  text-indent: 20px;
+  margin: 10px 0;
+}
 /*:start compatible*/
 .swiper-container{
   width:100%;
   height:100%;
-}
-.swiper-slide img{
-  height:159px;
 }
 .row>.col-6{
   padding-left:10px;
