@@ -358,8 +358,16 @@ a:hover,a:active{
 .admin-page .login-state{
   float: right;
 }
+.admin-page .login-state .login-state-info{
+  display: inline-block;
+  margin-right: 10px;
+}
+.admin-page .login-state .login-state-user{
+  color: orange;
+  font-weight: bold;
+}
 .admin-page .login-state a{
-  display: block;
+  display: inline-block;
   padding: 0 20px;
   background-color: orange;
   color: white;
@@ -371,7 +379,7 @@ a:hover,a:active{
   background-color: #f5bd56;
 }
 .admin-page .list.is-menu{
-  margin-right:100px;
+  margin-right:200px;
 }
 .admin-page .footer .container{
   padding: 10px;
