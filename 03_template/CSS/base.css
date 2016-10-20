@@ -334,7 +334,35 @@ a:hover,a:active{
   box-sizing: border-box;
 }
 
-/*:start btn*/
+/*:start admin-page*/
+.admin-page .header-inner,
+.admin-page .pager-inner,
+.admin-page .footer-inner{
+  margin: 0;
+  max-width: none;
+  min-width: 1024px;
+}
+.admin-page .body-inner{
+  background-position: top left;
+}
+.admin-page .login-state{
+  float: right;
+}
+.admin-page .login-state a{
+  display: block;
+  padding: 0 20px;
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+}
+.admin-page .login-state a:hover{
+  display: block;
+  color: #000;
+  background-color: #f5bd56;
+}
+.admin-page .list.is-menu{
+  margin-right:100px;
+}
 /*:start button*/
 .btn {
     display: inline-block;
