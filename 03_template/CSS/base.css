@@ -42,7 +42,7 @@ a:hover,a:active{
   max-height: 50px;
   vertical-align: middle;
 }
-.header-logo-img > img{
+.header-logo-img img{
   height:50px;
 }
 .header-logo-title{
@@ -93,8 +93,6 @@ a:hover,a:active{
 }
 .block-x{
   margin:10px 0;
-  background-color: white;
-  /*border: 1px solid #a0d0fa;*/
   border-radius: 3px;
 }
 .block-x-header{
@@ -313,13 +311,193 @@ a:hover,a:active{
 .paging a:hover{
   background-color: #eee;
 }
-/*:start login*/
-.login{
+/*:start login page*/
+.login-page .container{
+  background-color: inherit;
+}
+.login-page .header-nav{
+  display: none;
+}
+.login-page .header-logo{
+  margin: 50px auto 0 auto;
+  width: 400px;
+}
+.login-page .footer .container{
+  background-color: none;
+}
+.login-form{
+  padding: 30px;
   margin: 30px auto;
-  width:500px;
-  height: 300px;
+  width:400px;
   background-color: #eee;
   border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/*:start btn*/
+/*:start button*/
+.btn {
+    display: inline-block;
+    padding: 6px 1em;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.btn--xxx {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+}
+.btn--xx {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.btn--x {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.btn.btn--default {
+    color: #999;
+    background: #eee;
+}
+.btn.btn--primary {
+    color: #fff;
+    background: #348fe2;
+    border-color: #348fe2;
+}
+.btn--primary.active, .btn--primary:active, .btn--primary:focus, .btn--primary:hover {
+    background: #2a72b5;
+    border-color: #2a72b5;
+}
+.btn.btn--info {
+    color: #fff;
+    background: #49b6d6;
+    border-color: #49b6d6;
+}
+.btn--info.active, .btn--info:active, .btn--info:focus, .btn--info:hover {
+    background: #3a92ab;
+    border-color: #3a92ab;
+}
+.btn.btn--success {
+    color: #fff;
+    background: #64bd63;
+    border-color: #64bd63;
+}
+.btn.btn--success.active, .btn.btn--success:active, .btn.btn--success:focus, .btn.btn--success:hover {
+    background: #48a746;
+    border-color: #48a746;
+}
+.btn.btn--danger {
+    color: #fff;
+    background: #ff5b57;
+    border-color: #ff5b57;
+}
+.btn--danger.active, .btn--danger:active, .btn--danger:focus, .btn--danger:hover {
+    background: #cc4946;
+    border-color: #cc4946;
+}
+.btn.btn--warning {
+    color: #fff;
+    background: #f59c1a;
+    border-color: #f59c1a;
+}
+.btn--warning.active, .btn--warning:active, .btn--warning:focus, .btn--warning:hover {
+    background: #c47d15;
+    border-color: #c47d15;
+}
+.btn:disabled, .btn:disabled.active, .btn:disabled:active, .btn:disabled:focus, .btn:disabled:hover {
+    color: #ccc;
+    background: #eee;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+.btn.btn--link {
+    font-weight: 400;
+    color: #337ab7;
+    border: 0;
+    border-radius: 0;
+}
+.btn.btn--link:focus, .btn.btn--link:hover {
+    color: #23527c;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.btn.btn--circle {
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.btn-x.btn--circle{
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 8px;
+}
+.btn-xx.btn--circle{
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 11px;
+}
+.btn-xxx.btn--circle{
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 17px;
+}
+/*:start form*/
+.form-text{
+    margin: 0;
+    padding: 6px .8em;
+    height: 35px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9;
+    background: #fff;
+    font-size: 13px;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.form-text.be-wide{
+    width: 100%;
+}
+.form-name{
+  display: block;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+.form-cell{
+  margin: 10px 0;
+}
+.form-bottom{
+  margin: 10px 0;
+  text-align: right;
 }
 /*:start compatible*/
 .swiper-container{
