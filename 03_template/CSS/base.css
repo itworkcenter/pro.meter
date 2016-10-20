@@ -374,7 +374,6 @@ a:hover,a:active{
   font-weight: bold;
 }
 .admin-page .login-state a:hover{
-  display: block;
   color: #000;
   background-color: #f5bd56;
 }
