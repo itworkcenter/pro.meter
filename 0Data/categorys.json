@@ -1,0 +1,15 @@
+/*initial type: part, article*/
+[
+    {
+        "id":1,
+        "name":"part",
+        "type":"part",
+        "pId":23
+    },
+    {
+        "id":2,
+        "name":"Blank column",
+        "type":"article",
+        "pId":23
+    }
+]
