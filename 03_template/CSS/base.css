@@ -137,15 +137,16 @@ a:hover,a:active{
 .list.is-inline > li{
   display: inline;
 }
-.list.is-botton > li>a{
+.list.is-button > li>a{
   display: block;
   padding: 8px 10px;
   border-radius: 5px;
   background-color: #eee;
   text-align: center;
 }
-.list.is-botton > li.is-active > a{
-  background-color: #ddd;
+.list.is-button > li.is-active > a{
+  background-color: #666;
+  color: white;
 }
 .list.is-menu > li{
   padding: 0;
@@ -219,8 +220,10 @@ a:hover,a:active{
   margin-bottom:5px;
 }
 [class*="col-"]{
-    float: left;
+    display: inline-block;
+    margin:0 -2px;
     box-sizing: border-box;
+    vertical-align: middle;
 }
 .col-12 {
     width: 100%;
@@ -400,6 +403,9 @@ a:hover,a:active{
 .admin-page .list.is-menu{
   margin-right:200px;
 }
+.admin-page .list.is-button > li > a{
+  text-align: left;
+}
 .admin-page .footer .container{
   padding: 10px;
 }
@@ -408,6 +414,7 @@ a:hover,a:active{
 }
 .admin-tools{
   padding: 5px 10px;
+  margin: 5px 0;
   background-color: #eee;
 }
 .admin-data-template{
@@ -420,12 +427,11 @@ a:hover,a:active{
 .btn {
     display: inline-block;
     padding: 6px 1em;
-    margin: 0;
+    margin: 5px 0;
     font-size: 14px;
     font-weight: 300;
     line-height: 1.42857143;
     text-align: center;
-    white-space: nowrap;
     vertical-align: middle;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
@@ -450,7 +456,7 @@ a:hover,a:active{
     font-size: 12px;
     line-height: 1.5;
 }
-.btn--x {
+.btn--x{
     padding: 1px 5px;
     font-size: 12px;
     line-height: 1.5;
@@ -575,10 +581,12 @@ a:hover,a:active{
   border-radius: 3px;
   border: 1px solid #D9D9D9;
 }
-.form-name{
-  display: block;
+.form-label{
   max-width: 100%;
   margin-bottom: 5px;
+}
+.form-label.is-row{
+  display: block;
 }
 .form-cell{
   margin: 10px 0;
@@ -587,6 +595,10 @@ a:hover,a:active{
   margin: 10px 0;
   text-align: right;
 }
+.form-check{
+  margin-right: 5px;
+}
+.form-select{}
 /*:start compatible*/
 .swiper-container{
   width:100%;

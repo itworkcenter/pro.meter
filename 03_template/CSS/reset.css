@@ -48,6 +48,7 @@ input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
+	vertical-align: middle;
 }
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
