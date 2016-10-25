@@ -11,7 +11,6 @@ module.exports = {
      * userController.list()
      */
     list: function (req, res) {
-      console.log("user list");
         userModel.find(function (err, users) {
             if (err) {
                 return res.status(500).json({
