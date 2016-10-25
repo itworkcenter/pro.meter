@@ -1,11 +1,7 @@
 var express = require('express'),
-    app = express();
+    app = express(),
+    userRoutes = require("./userRoutes");
 // API service
-app.get("/api/users",function(req, res, next) {
- res.send("users list")
-});
-app.get('/api/posts', function(req, res, next) {
- res.send("posts list")
-});
+app.use("/users",userRoutes);
 
 module.exports = app;

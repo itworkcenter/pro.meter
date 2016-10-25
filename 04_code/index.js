@@ -14,10 +14,11 @@ app.set('view engine', 'html');
 app.set('views',  __dirname + '/views');
 
 //API service
-app.get("/api/*",routes);
+// app.route("/api",routes);
+app.use("/api",routes);
 
 //tempalte rander
-app.get(['/','/**.html','/**/'], pages);
+app.use(['/','/**.html','/**/'], pages);
 
 app.use(function(err,req,res,next){
     console.log(err);
