@@ -1,5 +1,4 @@
 {
-    "id":"1",
     "name":"carl",
     "pwd": "12345611",
     "email": "carl@mail.com",
@@ -7,7 +6,6 @@
     "gender": "man"
 }
 {
-    "id":"2",
     "name":"Linda",
     "pwd": "12345611",
     "email": "carl@mail.com",
@@ -15,7 +13,6 @@
     "gender": "man"
 }
 {
-    "id":"3",
     "name":"zhang",
     "pwd": "12345611",
     "email": "carl@mail.com",
