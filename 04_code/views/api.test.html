@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <script type="text/javascript" src="assets/Scripts/jquery.min.js"></script>
+        <style media="screen">
+            *{
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                padding: 0;
+                margin: 0;
+            }
+            body{
+                padding: 20px;
+            }
+            .form{
+                display: inline-block;
+                padding: 15px;
+                border: 1px solid #eee;
+                box-sizing: border-box;
+            }
+            .form label{
+                color: #ccc;
+                font-size: 12px;
+            }
+            .form input[type="text"]{
+                padding: 8px 10px;
+                border-radius: 3px;
+                border: 1px solid #eee;
+            }
+            form input[type="radio"]{
+                margin-right: 5px;
+            }
+             .row.is-wide input[type='text']{
+                display: block;
+            }
+            .row{
+                margin: 10px 0;
+            }
+            .row:before,
+            .row:after{
+                content: " ";
+                display: table;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form">
+            <form action="/login" >
+                <div class="row is-wide">
+                    <label for="">Username</label>
+                    <input id="name" type="text" name="name" value="carl">
+                </div>
+                <div class="row is-wide">
+                    <label for="">Password</label>
+                    <input id="pwd" type="text" name="pwd" value="12345611">
+                </div>
+                <div class="row ">
+                    <input type="submit" value="submint form">
+                    <button id="submit" type="button" name="button">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="form">
+            <form action="/api/users/" method="post">
+                <div class="row is-wide">
+                    <label for="">Username</label>
+                    <input type="text" name="name" value="carl">
+                </div>
+                <div class="row is-wide">
+                    <label for="">Password</label>
+                    <input type="text" name="pwd" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <label for="">email</label>
+                    <input type="text" name="email" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <label for="">tel</label>
+                    <input type="text" name="tel" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
+                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
+                </div>
+                <div class="row is-wide">
+                    <input type="submit" value="submint form">
+                </div>
+            </form>
+        </div>
+
+
+    </body>
+</html>
+<script type="text/javascript">
+
+$("#submit").click(function(){
+
+    var name = $("#name").val(),
+    pass = $("#pwd").val();
+
+    $.get("/login",{name:name,pwd:pass},function(data){
+        console.log("submit back");
+        console.log(data);
+    })
+
+})
+
+
+</script>
