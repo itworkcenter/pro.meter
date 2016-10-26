@@ -2,6 +2,7 @@
     "name":"carl",
     "pwd": "12345611",
     "email": "carl@mail.com",
+    "limit":1,
     "tel": "6263258623",
     "gender": "man"
 }
@@ -9,6 +10,7 @@
     "name":"Linda",
     "pwd": "12345611",
     "email": "carl@mail.com",
+    "limit":2,
     "tel": "6263258623",
     "gender": "man"
 }
@@ -16,6 +18,7 @@
     "name":"zhang",
     "pwd": "12345611",
     "email": "carl@mail.com",
+    "limit":3,
     "tel": "6263258623",
     "gender": "man"
 }
