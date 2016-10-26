@@ -1,11 +1,12 @@
 {
-  "name": "meter.industry",
+  "name": "meter",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "body-parser": "~1.15.1",
     "consolidate": "^0.14.1",
     "cookie-parser": "~1.4.3",
