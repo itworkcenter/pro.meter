@@ -1,45 +1,33 @@
 var express = require('express'),
+    session = require("express-sessions"),
     bodyParser = require('body-parser'),
+    passport = require("passport"),
     app = express(),
     port = 8080;
 
-    var promise = new Promise(function(resolve, reject) {
-      // do a thing, possibly async, then…
+var apiRoutes = require("./routes/apiRoutes"),
+    pageRoutes = require("./routes/pageRoutes.js"),
+    authRoutes = require("./routes/authRoutes.js");
 
-      if ( 1===1 /* everything turned out fine */) {
-        resolve("Stuff worked!");
-      }
-      else {
-        reject(Error("It broke"));
-      }
-    });
-
-    promise.then(function( message ) {
-      console.log( message );
-    },
-    function( err ) {
-      console.log( err );
-    });
-
-console.log(promise);
-
-var routes = require("./routes"),
-    pages = require("./routes/pages.js");
-
-// set .html as the default extension
+// Set .html as the default extension
 app.set('view engine', 'html');
 app.set('views',  __dirname + '/views');
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(session({secret: 'keyboard cat'}));
+app.use(passport.initialize());
+app.use(passport.session());
+//Static assets
 app.use('/assets', express.static("views/assets"));
 app.use('/back/assets', express.static("views/back/assets"));
-//API service
-// app.route("/api",routes);
-app.use("/api",routes);
 
-//tempalte rander
-app.use(['/','/**.html','/**/'], pages);
+//Authenticate
+app.use(authRoutes);
+
+//API service
+app.use("/api",apiRoutes);
+
+//Tempalte rander
+app.use(['/','/**.html','/**/'], pageRoutes);
 
 app.use(function(err,req,res,next){
   if(err){

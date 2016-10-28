@@ -1,18 +1,11 @@
 // passprot username password authenticate
 var express = require('express'),
-    app = express(),
-    session = require("express-sessions"),
     passport = require("passport"),
     LocalStrategy = require("passport-local").Strategy,
-    mongoose = require('mongoose'),
     app = express();
 
     var userModel = require('../models/userModel.js'),
         bcrypt = require("bcrypt");
-
-    app.use(session({secret: 'keyboard cat'}));
-    app.use(passport.initialize());
-    app.use(passport.session());
 
     passport.use(new LocalStrategy(function(name, pwd, done){
         userModel.findOne({name: name})
@@ -42,3 +35,4 @@ var express = require('express'),
              done(err, user);
         });
     });
+module.exports= passport;
