@@ -2,66 +2,47 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Login</title>
+        <title>API</title>
         <script type="text/javascript" src="assets/Scripts/jquery.min.js"></script>
-        <style media="screen">
-            *{
-                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-                padding: 0;
-                margin: 0;
-            }
-            body{
-                padding: 20px;
-            }
-            .form{
-                display: inline-block;
-                margin: 0 0 5px 0;
-                padding: 15px;
-                border: 1px solid #eee;
-                box-sizing: border-box;
-                vertical-align: top;
-            }
-            .form-title{
-              font-size: 18px;
-              font-weight: 100;
-              color: #666;
-            }
-            .form label{
-                color: #ccc;
-                font-size: 12px;
-            }
-            .form input[type="text"]{
-                padding: 8px 10px;
-                border-radius: 3px;
-                border: 1px solid #eee;
-            }
-            form input[type="radio"]{
-                margin-right: 5px;
-            }
-            input[type="submit"],
-            button{
-              padding: 5px 8px;
-              color: #999;
-              border: 1px solid #ccc;
-              border-radius: 3px;
-              background-color: #eee;
-              cursor: pointer;
-            }
-             .row.is-wide input[type='text']{
-                display: block;
-            }
-            .row{
-                margin: 10px 0;
-            }
-            .row:before,
-            .row:after{
-                content: " ";
-                display: table;
-                clear: both;
-            }
-        </style>
+        <link rel="stylesheet" href="assets/css/api.css" media="screen" title="no title">
     </head>
     <body>
+        <div class="break-message">
+            Error: Same username
+        </div>
+        <table class="table">
+            <colgroup>
+                <col style="width:10%">
+                <col style="width:30%">
+                <col style="width:20%">
+                <col style="width:10%">
+                <col style="width:10%">
+                <col style="width:10%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>
+                        name
+                    </th>
+                    <th>
+                        pwd
+                    </th>
+                    <th>
+                        email
+                    </th>
+                    <th>
+                        tel
+                    </th>
+                    <th>
+                        gender
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="user-list"></tbody>
+        </table>
         <div class="form">
           <h1 class="form-title">Login</h1>
             <form action="/login" >
@@ -136,11 +117,11 @@
                 </div>
                 <div class="row is-wide">
                     <label for="">email</label>
-                    <input type="text" name="email" value="12345611">
+                    <input type="text" name="email" value="ly@gmail.com">
                 </div>
                 <div class="row is-wide">
                     <label for="">tel</label>
-                    <input type="text" name="tel" value="12345611">
+                    <input type="text" name="tel" value="(626)8584512">
                 </div>
                 <div class="row is-wide">
                     <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
@@ -154,8 +135,8 @@
         <!-- :end form -->
 
         <div class="form">
-          <h1 class="form-title">Register</h1>
-            <form action="/api/users/" method="post">
+          <h1 class="form-title">Create</h1>
+            <form class="create-form" action="/api/users/" method="post">
                 <div class="row is-wide">
                     <label for="">Username</label>
                     <input type="text" name="name" value="carl">
@@ -166,20 +147,23 @@
                 </div>
                 <div class="row is-wide">
                     <label for="">email</label>
-                    <input type="text" name="email" value="12345611">
+                    <input type="text" name="email" value="ly@gmail.com">
                 </div>
                 <div class="row is-wide">
                     <label for="">tel</label>
-                    <input type="text" name="tel" value="12345611">
+                    <input type="text" name="tel" value="(626)8584512">
                 </div>
                 <div class="row is-wide">
                     <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
                     <input type="radio" name="gender" value="woman"><label for="">Woman</label>
                 </div>
-                <div class="row is-wide">
+                <!-- <div class="row is-wide">
                     <input type="submit" value="Submint">
-                </div>
+                </div> -->
             </form>
+            <div class="row">
+              <button id="create" type="button" name="button">Async Submit</button>
+            </div>
         </div>
         <!-- :end form -->
 
@@ -206,8 +190,6 @@ $("#delete").click(function(){
               // Do something with the result
           }
       });
-
-
 });
 
 $("#submit").click(function(){
@@ -222,6 +204,57 @@ $("#submit").click(function(){
     })
 
 })
+
+// :start create
+$("#create").click(function(){
+    $.ajax({
+          url: '/api/users/',
+          data:{
+              name: $(".create-form [name='name']").val(),
+              pwd: $(".create-form [name='pwd']").val(),
+              email: $(".create-form [name='email']").val(),
+              tel: $(".create-form [name='tel']").val(),
+              gender: $(".create-form [name='gender']:checked").val()
+          },
+          type: 'post',
+          success: function(result) {
+             showUserList();
+            console.log(result);
+          }
+      });
+});
+
+// :start list show
+showUserList();
+function showUserList(){
+    $.get("/api/users/", function(data){
+        var reslt ="";
+        if(!data){
+            return;
+        }
+        for(var i in data){
+            var json = data[i];
+            reslt += "<tr><td>"+json.name+"</td><td>"+json.pwd+"</td><td>"+json.email+"</td><td>"+json.tel+"</td><td>"+json.gender+"</td><td><button class='del-user' data-ids="+json._id+">del</button></td></tr>";
+        }
+
+        $("#user-list").html("").append(reslt);
+    })
+}
+
+$(document).on("click", ".del-user", function(){
+    var $this = $(this),
+        id = $this.data("ids");
+
+        $.ajax({
+              url: '/api/users/'+id,
+              type: 'DELETE',
+              success: function(result) {
+                showUserList();
+              }
+          });
+
+})
+
 
 
 </script>
