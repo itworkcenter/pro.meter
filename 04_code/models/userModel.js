@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 var db = require("../dal/mongoose");
-
 var userSchema = new Schema({
 	'name' : String,
 	'pwd' : String,
