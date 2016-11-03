@@ -126,6 +126,8 @@ module.exports = {
 			user.tel = req.body.tel ? req.body.tel : user.tel;
 			user.gender = req.body.gender ? req.body.gender : user.gender;
 
+            user.pwd = bcrypt.hashSync(user.pwd, saltRounds)
+
             user.save(function (err, user) {
                 if (err) {
                     return res.status(500).json({
