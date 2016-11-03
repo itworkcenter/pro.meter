@@ -37,6 +37,7 @@ form input[type="radio"]{
 }
 input[type="submit"],
 button{
+    margin: 2px 4px;
   padding: 5px 8px;
   color: #999;
   border: 1px solid #ccc;
@@ -83,11 +84,14 @@ button{
     font-size: 12px;
 }
 /*:start break message*/
-.break-message{
+.message{
     position: fixed;
-    right: 0;
+    left: 0;
     top: 0;
     display: none;
     padding: 5px;
     background-color: #eee;
+}
+.message-info{
+    color: #06f;
 }
