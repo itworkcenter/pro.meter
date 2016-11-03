@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <script type="text/javascript" src="assets/Scripts/jquery.min.js"></script>
+        <style media="screen">
+            *{
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                padding: 0;
+                margin: 0;
+            }
+            body{
+                padding: 20px;
+            }
+            .form{
+                display: inline-block;
+                margin: 0 0 5px 0;
+                padding: 15px;
+                border: 1px solid #eee;
+                box-sizing: border-box;
+                vertical-align: top;
+            }
+            .form-title{
+              font-size: 18px;
+              font-weight: 100;
+              color: #666;
+            }
+            .form label{
+                color: #ccc;
+                font-size: 12px;
+            }
+            .form input[type="text"]{
+                padding: 8px 10px;
+                border-radius: 3px;
+                border: 1px solid #eee;
+            }
+            form input[type="radio"]{
+                margin-right: 5px;
+            }
+            input[type="submit"],
+            button{
+              padding: 5px 8px;
+              color: #999;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+              background-color: #eee;
+              cursor: pointer;
+            }
+             .row.is-wide input[type='text']{
+                display: block;
+            }
+            .row{
+                margin: 10px 0;
+            }
+            .row:before,
+            .row:after{
+                content: " ";
+                display: table;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form">
+          <h1 class="form-title">Login</h1>
+            <form action="/login" >
+                <div class="row is-wide">
+                    <label for="">Username</label>
+                    <input id="name" type="text" name="name" value="carl">
+                </div>
+                <div class="row is-wide">
+                    <label for="">Password</label>
+                    <input id="pwd" type="text" name="pwd" value="12345611">
+                </div>
+                <div class="row ">
+                    <input type="submit" value="Submint">
+                    <button id="submit" type="button" name="button">Async Submit</button>
+                </div>
+            </form>
+            <div class="message">{{message}}</div>
+        </div>
+        <!-- :end form -->
+
+        <div class="form">
+          <h1 class="form-title">Authenticate</h1>
+            <form action="/admin" >
+                <div class="row is-wide">
+                  <label for="">Username</label>
+                  <input type="text" name="name" value="carl">
+                </div>
+                <div class="row">
+                  <input type="submit" value="Submint">
+                  <button id="submit-admin" type="button" name="button">Async Submit</button>
+                </div>
+            </form>
+        </div>
+        <!-- :end form -->
+
+        <div class="form">
+          <h1 class="form-title">Delete</h1>
+
+            <form action="/api/users" method="delete">
+                <div class="row is-wide">
+                  <label for="">Name</label>
+                  <input id="delete-id" type="text" name="id" value="">
+                </div>
+                <div class="row">
+                  <input type="submit" value="Submit">
+                </div>
+            </form>
+            <div class="row">
+              <button id="delete">Async Submit</button>
+            </div>
+            <div class="message">{{message}}</div>
+        </div>
+        <!-- :end form -->
+
+        <div class="form">
+          <h1 class="form-title">Update</h1>
+            <form action="/api/users/" method="post">
+                <div class="row is-wide">
+                    <label for="">Id</label>
+                    <input type="text" name="id" value="">
+                </div>
+                <div class="row is-wide">
+                    <label for="">Username</label>
+                    <input type="text" name="name" value="carl">
+                </div>
+                <div class="row is-wide">
+                    <label for="">Password</label>
+                    <input type="text" name="pwd" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <label for="">email</label>
+                    <input type="text" name="email" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <label for="">tel</label>
+                    <input type="text" name="tel" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
+                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
+                </div>
+                <div class="row is-wide">
+                    <input type="submit" value="Submint">
+                </div>
+            </form>
+        </div>
+        <!-- :end form -->
+
+        <div class="form">
+          <h1 class="form-title">Register</h1>
+            <form action="/api/users/" method="post">
+                <div class="row is-wide">
+                    <label for="">Username</label>
+                    <input type="text" name="name" value="carl">
+                </div>
+                <div class="row is-wide">
+                    <label for="">Password</label>
+                    <input type="text" name="pwd" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <label for="">email</label>
+                    <input type="text" name="email" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <label for="">tel</label>
+                    <input type="text" name="tel" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
+                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
+                </div>
+                <div class="row is-wide">
+                    <input type="submit" value="Submint">
+                </div>
+            </form>
+        </div>
+        <!-- :end form -->
+
+
+    </body>
+</html>
+<script type="text/javascript">
+
+$("#submit-admin").click(function(){
+
+    $.get("/admin",function(data){
+        console.log("submit back");
+        console.log(data);
+    })
+
+})
+$("#delete").click(function(){
+    var id = $("#delete-id").val();
+    $.ajax({
+    url: '/api/users/'+id,
+    type: 'DELETE',
+    success: function(result) {
+      console.log(result);
+        // Do something with the result
+    }
+});
+
+
+});
+
+$("#submit").click(function(){
+
+    var name = $("#name").val(),
+    pass = $("#pwd").val();
+
+    $.get("/login",{name:name,pwd:pass},function(data){
+        console.log("submit back");
+        console.log(data);
+    })
+
+})
+
+
+</script>

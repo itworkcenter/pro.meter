@@ -15,6 +15,6 @@ var userSchema = new Schema({
 	'gender' : String
 });
 //passport
-Account.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose);
 
 module.exports = db.model('user', userSchema);

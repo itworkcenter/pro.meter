@@ -10,13 +10,15 @@ var express = require('express'),
     var userModel = require('../models/userModel.js'),
         bcrypt = require("bcrypt");
 
-module.exports = function(err,req,res,next){
+module.exports = function(req,res,next){
+  console.log("auth");
 
-    app.use(session({secret: 'keyboard cat'}));
-    app.use(passport.initialize());
-    app.use(passport.session());
+  // app.use(session({secret: 'keyboard cat'}));
+  app.use(passport.initialize());
+  app.use(passport.session());
 
     passport.use(new LocalStrategy(function(name, pwd, done){
+      console.log("passport local");
         userModel.findOne({name: name})
         .then(function(user){
             if (!user) {
@@ -44,6 +46,5 @@ module.exports = function(err,req,res,next){
              done(err, user);
         });
     });
-
     next();
 };

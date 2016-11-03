@@ -19,15 +19,22 @@ app.get(["/","/index.html"],function(req, res){
 });
 
 //login page
-app.get(["/login.html"],function(req, res){
+app.get(["/api.html"],function(req, res){
     pageDeal(req, res , {
-        title:"Home page"
+        message:"It's ok."
     })
 });
+
 // login controller
-app.get(["/login"],function(req, res){
+app.get("/login",function(req, res){
     userController.checkUser(req, res);
 });
+
+//admin
+app.get("/admin",passport.authenticate('local', { successRedirect: '/',  failureRedirect: '/login' }));
+// app.get("/admin",function(req, res){
+//   console.log(passport.authenticate('local', { successRedirect: '/',  failureRedirect: '/login' }));
+// });
 
 
 
