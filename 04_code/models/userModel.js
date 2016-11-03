@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 var db = require("../dal/mongoose");
+
+mongoose.Promise = require("bluebird");
+//passport
+var passportLocalMongoose = require('passport-local-mongoose');
+
 var userSchema = new Schema({
 	'name' : String,
 	'pwd' : String,
@@ -9,5 +14,7 @@ var userSchema = new Schema({
 	'tel' : String,
 	'gender' : String
 });
+//passport
+Account.plugin(passportLocalMongoose);
 
 module.exports = db.model('user', userSchema);
