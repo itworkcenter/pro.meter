@@ -1,34 +1,35 @@
 var express = require('express'),
     session = require("express-sessions"),
+    logger = require("morgan"),
+    cookieParser = require("cookie-parser");
+    path = require("path"),
     bodyParser = require('body-parser'),
-    passport = require("passport"),
     app = express(),
     port = 8080;
 
-var apiRoutes = require("./routes/apiRoutes"),
-    pageRoutes = require("./routes/pageRoutes.js"),
-    authRoutes = require("./routes/authRoutes.js");
-
-// Set .html as the default extension
+// set .html as the default extension
 app.set('view engine', 'html');
-app.set('views',  __dirname + '/views');
+app.set('views',  path.join(__dirname + '/views'));
+
+app.use(logger("dev"));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(session({secret: 'keyboard cat'}));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(bodyParser.json());
+app.use(cookieParser());
+
 //Static assets
 app.use('/assets', express.static("views/assets"));
 app.use('/back/assets', express.static("views/back/assets"));
 
-//Authenticate
-app.use(authRoutes);
+// Authenticate
+app.use(require("./routes/authRoutes"));
 
 //API service
-app.use("/api",apiRoutes);
+app.use('/api', require("./routes/apiRoutes"));
 
-//Tempalte rander
-app.use(['/','/**.html','/**/'], pageRoutes);
+//Template  render
+app.use(['/','/**.html','/**/'], require("./routes/pageRoutes"));
 
+// Deal with Error
 app.use(function(err,req,res,next){
   if(err){
     res.send('Bad Request');
