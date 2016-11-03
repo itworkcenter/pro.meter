@@ -1,4 +1,6 @@
 var express = require('express'),
+    passport = require('passport'),
+    Account = require("../models/userModel"),
     cons = require('consolidate'),
     path = require('path'),
     app = express();
@@ -12,24 +14,26 @@ app.set('view engine', 'html');
 // Page control
 app.get(["/","/index.html"],function(req, res){
   pageDeal(req, res , {
-      title:"Home page"
+      title: req.user
   })
 });
 
+//login page
 app.get(["/login.html"],function(req, res){
     pageDeal(req, res , {
         title:"Home page"
     })
 });
+// login controller
 app.get(["/login"],function(req, res){
     userController.checkUser(req, res);
 });
 
 
+
 //Page deal
 function pageDeal(req, res , backJson){
 var backName = req.path.match(/\w+/);
-
 var backStr = backName?backName[0]:"index";
 
   res.render(backStr, backJson);
