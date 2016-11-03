@@ -86,7 +86,7 @@ button{
 .break-message{
     position: fixed;
     right: 0;
-    bottom: 0;
+    top: 0;
     display: none;
     padding: 5px;
     background-color: #eee;
