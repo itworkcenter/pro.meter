@@ -75,9 +75,11 @@
                 </div>
                 <div class="row ">
                     <input type="submit" value="Submint">
-                    <button id="submit" type="button" name="button">Async Submit</button>
                 </div>
             </form>
+            <div class="row">
+              <button id="submit" type="button" name="button">Async Submit</button>
+            </div>
             <div class="message">{{message}}</div>
         </div>
         <!-- :end form -->
@@ -91,15 +93,16 @@
                 </div>
                 <div class="row">
                   <input type="submit" value="Submint">
-                  <button id="submit-admin" type="button" name="button">Async Submit</button>
                 </div>
             </form>
+            <div class="row">
+              <button id="submit-admin" type="button" name="button">Async Submit</button>
+            </div>
         </div>
         <!-- :end form -->
 
         <div class="form">
           <h1 class="form-title">Delete</h1>
-
             <form action="/api/users" method="delete">
                 <div class="row is-wide">
                   <label for="">Name</label>
@@ -188,26 +191,27 @@
 $("#submit-admin").click(function(){
 
     $.get("/admin",function(data){
-        console.log("submit back");
-        console.log(data);
+        console.log("/admin back");
     })
-
+  return false;
 })
 $("#delete").click(function(){
+  console.log("click delete");
     var id = $("#delete-id").val();
     $.ajax({
-    url: '/api/users/'+id,
-    type: 'DELETE',
-    success: function(result) {
-      console.log(result);
-        // Do something with the result
-    }
-});
+          url: '/api/users/'+id,
+          type: 'DELETE',
+          success: function(result) {
+            console.log(result);
+              // Do something with the result
+          }
+      });
 
 
 });
 
 $("#submit").click(function(){
+    console.log("click login");
 
     var name = $("#name").val(),
     pass = $("#pwd").val();

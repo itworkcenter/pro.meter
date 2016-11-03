@@ -1,26 +1,32 @@
-var express = require('express'),
-    session = require("express-sessions"),
-    logger = require("morgan"),
-    cookieParser = require("cookie-parser");
-    path = require("path"),
-    bodyParser = require('body-parser'),
-    app = express(),
-    port = 8080;
+var express = require('express');
+var session = require("express-sessions");
+var app = express();
+var logger = require("morgan");
+var cookieParser = require("cookie-parser");
+var path = require("path");
+var bodyParser = require('body-parser');
+var passport = require("passport");
+var cons = require('consolidate');
+var port = 8080;
+
+global.passport = passport;
+
+// assign the swig engine to .html files
+app.engine('html', cons.swig);
 
 // set .html as the default extension
 app.set('view engine', 'html');
 app.set('views',  path.join(__dirname + '/views'));
-app.use(logger("dev"));
+//app.use(logger("dev"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Static assets
 app.use('/assets', express.static("views/assets"));
 app.use('/back/assets', express.static("views/back/assets"));
-
-// Authenticate
-app.use(require("./routes/authRoutes"));
 
 //API service
 app.use('/api', require("./routes/apiRoutes"));

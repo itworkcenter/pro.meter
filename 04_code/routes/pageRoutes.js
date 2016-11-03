@@ -1,15 +1,18 @@
-var express = require('express'),
-    passport = require('passport'),
-    Account = require("../models/userModel"),
-    cons = require('consolidate'),
-    path = require('path'),
-    app = express();
-
+var app = require("express")();
+var Account = require("../models/userModel");
+var path = require('path');
 var userController = require("../controllers/userController");
 
-// assign the swig engine to .html files
-app.engine('html', cons.swig);
-app.set('view engine', 'html');
+// pass passport for configuration
+// require("../configs/passport");
+
+//Page deal
+function pageDeal(req, res , backJson){
+var backName = req.path.match(/\w+/);
+var backStr = backName?backName[0]:"index";
+
+  res.render(backStr, backJson);
+}
 
 // Page control
 app.get(["/","/index.html"],function(req, res){
@@ -26,24 +29,25 @@ app.get(["/api.html"],function(req, res){
 });
 
 // login controller
-app.get("/login",function(req, res){
+app.get("/show",function(req, res){
+  console.log("--->/show");
     userController.checkUser(req, res);
 });
 
+// login controller
+app.get("/login",function(req, res){
+  console.log("--->/login");
+    userController.checkUser(req, res);
+});
+
+
 //admin
-app.get("/admin",passport.authenticate('local', { successRedirect: '/',  failureRedirect: '/login' }));
+app.get("/admin",passport.authenticate('local-login', { successRedirect: '/',  failureRedirect: '/login' }));
 // app.get("/admin",function(req, res){
 //   console.log(passport.authenticate('local', { successRedirect: '/',  failureRedirect: '/login' }));
 // });
 
 
 
-//Page deal
-function pageDeal(req, res , backJson){
-var backName = req.path.match(/\w+/);
-var backStr = backName?backName[0]:"index";
-
-  res.render(backStr, backJson);
-}
 
 module.exports = app;

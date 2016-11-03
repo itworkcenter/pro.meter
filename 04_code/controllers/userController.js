@@ -65,6 +65,7 @@ module.exports = {
          });
      },
      checkUser: function (req, res) {
+       console.log("checkUser parent");
          checkUser(req.query,function(json){
              return res.json(json);
          })

@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var mongooseCfg = require("../../configs/mongoose");
+var mongooseCfg = require("../configs/database").mongoose;
 
 var db = mongoose.createConnection(mongooseCfg.uri, mongooseCfg.options);
 
