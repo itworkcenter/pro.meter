@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="assets/css/api.css" media="screen" title="no title">
     </head>
     <body>
-        <div id="message" class="break-message">
+        <div id="message" class="message">
             <!-- <div class="message-info">Error</div> -->
         </div>
         <table class="table">
@@ -54,12 +54,12 @@
                     <label for="">Password</label>
                     <input id="pwd" type="text" name="pwd" value="12345611">
                 </div>
-                <div class="row ">
+                <!-- <div class="row ">
                     <input type="submit" value="Submint">
-                </div>
+                </div> -->
             </form>
             <div class="row">
-              <button id="submit" type="button" name="button">Async Submit</button>
+              <button id="login" type="button" name="button">Async Submit</button>
             </div>
             <div class="message">{{message}}</div>
         </div>
@@ -102,14 +102,14 @@
 
         <div class="form">
           <h1 class="form-title">Update</h1>
-            <form action="/api/users/" method="post">
+            <form class="edit-form" action="/api/users/" method="post">
                 <div class="row is-wide">
                     <label for="">Id</label>
-                    <input type="text" name="id" value="">
+                    <input type="text" name="id" value="" disabled>
                 </div>
                 <div class="row is-wide">
                     <label for="">Username</label>
-                    <input type="text" name="name" value="carl">
+                    <input type="text" name="name" value="carl" disabled>
                 </div>
                 <div class="row is-wide">
                     <label for="">Password</label>
@@ -127,10 +127,13 @@
                     <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
                     <input type="radio" name="gender" value="woman"><label for="">Woman</label>
                 </div>
-                <div class="row is-wide">
+                <!-- <div class="row is-wide">
                     <input type="submit" value="Submint">
-                </div>
+                </div> -->
             </form>
+            <div class="row">
+              <button id="update" type="button" name="button">Async Submit</button>
+            </div>
         </div>
         <!-- :end form -->
 
@@ -171,14 +174,20 @@
     </body>
 </html>
 <script type="text/javascript">
-function msg(msg){
-    if(typeof msg == "string"){
-        var $msg =$("<div class='message-info'>"+msg+"</div>");
-        $("#message").append($msg).show();
-        setTimeout(function(){
-            $msg.remove();
-        },1000);
+function send(msg){
+
+    console.log(msg);
+
+    var msgr=msg;
+    if(typeof msg == "object"){
+        msgr = msg.success||msg.error||"Complete.";
     }
+
+    var $msg =$("<div class='message-info'>"+msgr+"</div>");
+    $("#message").append($msg).show();
+    setTimeout(function(){
+        $msg.remove();
+    },2000);
 }
 
 $("#submit-admin").click(function(){
@@ -201,15 +210,12 @@ $("#delete").click(function(){
       });
 });
 
-$("#submit").click(function(){
-    console.log("click login");
-
+$("#login").click(function(){
     var name = $("#name").val(),
     pass = $("#pwd").val();
 
-    $.get("/login",{name:name,pwd:pass},function(data){
-        console.log("submit back");
-        console.log(data);
+    $.get("/login",{name:name,pwd:pass},function(result){
+        send(result);
     })
 
 })
@@ -228,11 +234,33 @@ $("#create").click(function(){
           type: 'post',
           success: function(result) {
              showUserList();
-            msg(result);
+            send(result);
           }
       });
 });
-
+// :start create
+$("#update").click(function(){
+    var id = $(".edit-form [name=id]").val();
+    if(!id){
+        send("ID is required");
+        return;
+    }
+    $.ajax({
+          url: '/api/users/'+id,
+          data:{
+              name: $(".edit-form [name='name']").val(),
+              pwd: $(".edit-form [name='pwd']").val(),
+              email: $(".edit-form [name='email']").val(),
+              tel: $(".edit-form [name='tel']").val(),
+              gender: $(".edit-form [name='gender']:checked").val()
+          },
+          type: 'put',
+          success: function(result) {
+             showUserList();
+            send(result);
+          }
+      });
+});
 // :start list show
 showUserList();
 function showUserList(){
@@ -243,13 +271,13 @@ function showUserList(){
         }
         for(var i in data){
             var json = data[i];
-            reslt += "<tr><td>"+json.name+"</td><td>"+json.pwd+"</td><td>"+json.email+"</td><td>"+json.tel+"</td><td>"+json.gender+"</td><td><button class='del-user' data-ids="+json._id+">del</button></td></tr>";
+            reslt += "<tr><td>"+json.name+"</td><td>"+json.pwd+"</td><td>"+json.email+"</td><td>"+json.tel+"</td><td>"+json.gender+"</td><td><button class='del-user' data-ids="+json._id+">del</button><button class='edit-user' data-ids="+json._id+">edit</button></td></tr>";
         }
 
         $("#user-list").html("").append(reslt);
     })
 }
-
+// :start delete user
 $(document).on("click", ".del-user", function(){
     var $this = $(this),
         id = $this.data("ids");
@@ -261,6 +289,21 @@ $(document).on("click", ".del-user", function(){
                 showUserList();
               }
           });
+})
+// :start edit user
+$(document).on("click", ".edit-user", function(){
+    var $this = $(this),
+        id = $this.data("ids"),
+        getVal = function(index){
+            return $("td:eq("+index+")",$this.parents("tr"));
+        };
+
+        $(".edit-form [name='id']").val(id);
+        $(".edit-form [name='name']").val(getVal(0).html());
+        $(".edit-form [name='email']").val(getVal(2).html());
+        $(".edit-form [name='tel']").val(getVal(3).html());
+        // $(".edit-form [name='gender']").attr("checked",false);
+        $(".edit-form [name='gender'][value='"+getVal(4).html()+"']").click();
 
 })
 
