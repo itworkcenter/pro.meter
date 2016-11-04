@@ -8,9 +8,9 @@
     <script type="text/javascript" src="assets/Scripts/test.js"></script>
   </head>
   <body>
-      <h1 class="title">{{title}}</h1>
+      <!-- <h1 class="title">{{title}}</h1> -->
     <!-- :start submit login -->
-    <div class="form">
+    <div class="form col-3">
       <h1 class="form-title">Login</h1>
         <form action="/login" >
             <div class="row is-wide">
@@ -37,9 +37,14 @@ $("#submit-login").click(function(){
     var name = $("#name").val(),
     pass = $("#pwd").val();
 
-    $.get("/login",{username: name, password: pass},function(result){
-        send(result);
-        location.href="/admin/";
+    $.get("/login",{username: name, password: pass},function(data, status){
+        //send(data);
+        console.log(data);
+        console.log(status);
+        if(data.success){
+            location.href="/admin/";
+        }
+
     })
 
 })
