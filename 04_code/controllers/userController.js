@@ -5,7 +5,6 @@ const saltRounds = 10;
 
 // public function
 function checkUser(json,back){
-  console.log("checkUser");
     userModel.findOne({name: json.name}, function (err, object) {
         if (err) {
            return back({error:"error"});

@@ -9,6 +9,11 @@ a{
 body{
     padding: 20px;
 }
+.title{
+  margin:2px 0 5px 0;
+  font-size: 16px;
+  color: #999;
+}
 /* :start form style*/
 .form{
     display: inline-block;
@@ -82,16 +87,4 @@ button{
     text-align: left;
     color: #999;
     font-size: 12px;
-}
-/*:start break message*/
-.message{
-    position: fixed;
-    left: 0;
-    top: 0;
-    display: none;
-    padding: 5px;
-    background-color: #eee;
-}
-.message-info{
-    color: #06f;
 }

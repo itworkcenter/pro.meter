@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>{{title}}</title>
-        <script type="text/javascript" src="assets/Scripts/jquery.min.js"></script>
-        <link rel="stylesheet" href="assets/css/api.css" media="screen" title="no title">
+        <link rel="stylesheet" href="../assets/css/test.css"/>
+        <script type="text/javascript" src="../assets/Scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="../assets/Scripts/test.js"></script>
     </head>
     <body>
         <h1 class="title">{{title}}</h1>
@@ -32,25 +33,6 @@
             </thead>
             <tbody id="user-list"></tbody>
         </table>
-
-        <!-- :start submit login -->
-        <div class="form">
-          <h1 class="form-title">Login</h1>
-            <form action="/login" >
-                <div class="row is-wide">
-                    <label for="">Username</label>
-                    <input id="name" type="text" name="name" value="carl">
-                </div>
-                <div class="row is-wide">
-                    <label for="">Password</label>
-                    <input id="pwd" type="text" name="pwd" value="12345611">
-                </div>
-            </form>
-            <div class="row">
-              <button id="submit-login" type="button" name="button">Async Submit</button>
-            </div>
-        </div>
-        <!-- :end submit login -->
 
         <div class="form">
           <h1 class="form-title">Authenticate</h1>
@@ -148,26 +130,14 @@
             </div>
         </div>
         <!-- :end form -->
+        <div class="form">
+          <button type="button" name="button" onclick="location.href='/logout'">Async logout</button>
+        </div>
 
 
     </body>
 </html>
 <script type="text/javascript">
-function send(msg){
-
-    console.log(msg);
-
-    var msgr=msg;
-    if(typeof msg == "object"){
-        msgr = msg.success||msg.error||"Complete.";
-    }
-
-    var $msg =$("<div class='message-info'>"+msgr+"</div>");
-    $("#message").append($msg).show();
-    setTimeout(function(){
-        $msg.remove();
-    },2000);
-}
 
 // :start submit authenticate
 $("#submit-auth").click(function(){
@@ -183,7 +153,6 @@ $("#submit-auth").click(function(){
 
 // :start submit delete
 $("#submit-del").click(function(){
-  console.log("click delete");
     var id = $("#delete-id").val();
     $.ajax({
           url: '/api/users/'+id,
@@ -194,17 +163,6 @@ $("#submit-del").click(function(){
           }
       });
 });
-
-//:start submit login
-$("#submit-login").click(function(){
-    var name = $("#name").val(),
-    pass = $("#pwd").val();
-
-    $.get("/login",{name:name,pwd:pass},function(result){
-        send(result);
-    })
-
-})
 
 // :start submit create
 $("#submit-create").click(function(){

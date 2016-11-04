@@ -22,8 +22,8 @@ app.get(["/","/index.html"],function(req, res){
   })
 });
 
-//login page
-app.get(["/api.html"],function(req, res){
+//api page
+app.get(["/admin/","/admin/index.html"],function(req, res){
     pageDeal(req, res , {
         title:"CRUD"
     })
@@ -34,15 +34,21 @@ app.get("/show",function(req, res){
     userController.checkUser(req, res);
 });
 
-// login controller
-app.get("/login",function(req, res){
-    userController.checkUser(req, res);
+//login page
+app.get(["/login.html"],function(req, res){
+    pageDeal(req, res , {
+        title:"Login"
+    })
+});
+//login
+app.get("/login", passport.authenticate('local-login'), function(req, res){
+  res.json(req.user);
 });
 
-
-//admin
-app.get("/admin", passport.authenticate('local-login'), function(req, res){
-  res.json(req.user);
+//login
+app.get("/logout", function(req, res){
+  req.logout();
+  res.redirect('/login.html');
 });
 
 

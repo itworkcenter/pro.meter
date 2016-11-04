@@ -33,7 +33,7 @@ module.exports = function(passport){
        }
 
         if (!user) {
-           return one(null, false,{alert: "Incorrect username."})
+           return done(null, false,{alert: "Incorrect username."})
        }
 
        if(bcrypt.compareSync(pwd, user.pwd)){
