@@ -22,28 +22,18 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th>
-                        name
-                    </th>
-                    <th>
-                        pwd
-                    </th>
-                    <th>
-                        email
-                    </th>
-                    <th>
-                        tel
-                    </th>
-                    <th>
-                        gender
-                    </th>
-                    <th>
-
-                    </th>
+                    <th>name</th>
+                    <th>pwd</th>
+                    <th>email</th>
+                    <th>tel</th>
+                    <th>gender</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="user-list"></tbody>
         </table>
+
+        <!-- :start submit login -->
         <div class="form">
           <h1 class="form-title">Login</h1>
             <form action="/login" >
@@ -55,29 +45,28 @@
                     <label for="">Password</label>
                     <input id="pwd" type="text" name="pwd" value="12345611">
                 </div>
-                <!-- <div class="row ">
-                    <input type="submit" value="Submint">
-                </div> -->
             </form>
             <div class="row">
-              <button id="login" type="button" name="button">Async Submit</button>
+              <button id="submit-login" type="button" name="button">Async Submit</button>
             </div>
         </div>
-        <!-- :end form -->
+        <!-- :end submit login -->
 
         <div class="form">
           <h1 class="form-title">Authenticate</h1>
-            <form action="/admin" >
+            <form class="auth-form" action="/admin" >
                 <div class="row is-wide">
                   <label for="">Username</label>
-                  <input type="text" name="name" value="carl">
+                  <input type="text" name="username" value="carl">
                 </div>
-                <div class="row">
-                  <input type="submit" value="Submint">
+                <div class="row is-wide">
+                  <label for="">Password</label>
+                  <input type="text" name="password" value="12345611">
                 </div>
+
             </form>
             <div class="row">
-              <button id="submit-admin" type="button" name="button">Async Submit</button>
+              <button id="submit-auth" type="button" name="button">Async Submit</button>
             </div>
         </div>
         <!-- :end form -->
@@ -89,12 +78,9 @@
                   <label for="">Name</label>
                   <input id="delete-id" type="text" name="id" value="">
                 </div>
-                <div class="row">
-                  <input type="submit" value="Submit">
-                </div>
             </form>
             <div class="row">
-              <button id="delete">Async Submit</button>
+              <button id="submit-del">Async Submit</button>
             </div>
         </div>
         <!-- :end form -->
@@ -126,12 +112,9 @@
                     <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
                     <input type="radio" name="gender" value="woman"><label for="">Woman</label>
                 </div>
-                <!-- <div class="row is-wide">
-                    <input type="submit" value="Submint">
-                </div> -->
             </form>
             <div class="row">
-              <button id="update" type="button" name="button">Async Submit</button>
+              <button id="submit-update" type="button" name="button">Async Submit</button>
             </div>
         </div>
         <!-- :end form -->
@@ -159,12 +142,9 @@
                     <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
                     <input type="radio" name="gender" value="woman"><label for="">Woman</label>
                 </div>
-                <!-- <div class="row is-wide">
-                    <input type="submit" value="Submint">
-                </div> -->
             </form>
             <div class="row">
-              <button id="create" type="button" name="button">Async Submit</button>
+              <button id="submit-create" type="button" name="button">Async Submit</button>
             </div>
         </div>
         <!-- :end form -->
@@ -189,14 +169,20 @@ function send(msg){
     },2000);
 }
 
-$("#submit-admin").click(function(){
+// :start submit authenticate
+$("#submit-auth").click(function(){
+  var data = {
+    username: $(".auth-form [name='username']").val(),
+    password: $(".auth-form [name='password']").val()
+  };
 
-    $.get("/admin",function(data){
-        console.log("/admin back");
+    $.get("/admin",data,function(data){
+        console.log(data);
     })
-  return false;
 })
-$("#delete").click(function(){
+
+// :start submit delete
+$("#submit-del").click(function(){
   console.log("click delete");
     var id = $("#delete-id").val();
     $.ajax({
@@ -209,7 +195,8 @@ $("#delete").click(function(){
       });
 });
 
-$("#login").click(function(){
+//:start submit login
+$("#submit-login").click(function(){
     var name = $("#name").val(),
     pass = $("#pwd").val();
 
@@ -219,8 +206,8 @@ $("#login").click(function(){
 
 })
 
-// :start create
-$("#create").click(function(){
+// :start submit create
+$("#submit-create").click(function(){
     $.ajax({
           url: '/api/users/',
           data:{
@@ -237,8 +224,8 @@ $("#create").click(function(){
           }
       });
 });
-// :start create
-$("#update").click(function(){
+// :start submit create
+$("#submit-update").click(function(){
     var id = $(".edit-form [name=id]").val();
     if(!id){
         send("ID is required");

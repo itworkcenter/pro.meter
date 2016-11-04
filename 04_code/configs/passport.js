@@ -1,10 +1,9 @@
-var LocalStrategy = require("passport-local").Strategy,
-    userModel = require('../models/userModel.js'),
-    bcrypt = require("bcrypt");
+var LocalStrategy = require('passport-local').Strategy;
+var userModel = require('../models/userModel.js');
+var bcrypt = require("bcrypt");
 
 // expose this function to our app using module.exports
-module.exports = function(){
-  //console.log("passport strategy");
+module.exports = function(passport){
 
   // ==============================================
   // Passport session setup
@@ -24,24 +23,23 @@ module.exports = function(){
   // ==============================================
   // Passport  strategy signup
   // ==============================================
-console.log("passport use");
   passport.use("local-login",new LocalStrategy(function(name, pwd, done){
-    console.log("local strategy");
+    console.log("----->local strategy");
 
       userModel.findOne({name: name}, function(err, user){
 
-        if (!err) {
+        if (err) {
            return done(err);
        }
 
         if (!user) {
-           return one(null, fasle,{alert: "Incorrect username."})
+           return one(null, false,{alert: "Incorrect username."})
        }
 
        if(bcrypt.compareSync(pwd, user.pwd)){
                return done(null, user);
        }else{
-               return one(null, fasle,{alert: "Incorrect password."})
+               return done(null, false,{alert: "Incorrect password."})
        }
 
      });

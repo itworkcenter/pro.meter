@@ -9,8 +9,6 @@ var passport = require("passport");
 var cons = require('consolidate');
 var port = 8080;
 
-global.passport = passport;
-
 // assign the swig engine to .html files
 app.engine('html', cons.swig);
 
