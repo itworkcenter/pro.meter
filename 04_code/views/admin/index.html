@@ -8,10 +8,11 @@
         <script type="text/javascript" src="../assets/Scripts/test.js"></script>
     </head>
     <body>
-        <h1 class="title">{{title}}</h1>
-        <div id="message" class="message">
-            <!-- <div class="message-info">Error</div> -->
-        </div>
+        <h1 class="title">{{title}}
+            <div class="title-tools">
+                <button type="button" name="button" onclick="location.href='/logout'">Async logout</button>
+            </div>
+        </h1>
         <table class="table">
             <colgroup>
                 <col style="width:10%">
@@ -34,6 +35,71 @@
             <tbody id="user-list"></tbody>
         </table>
 
+
+        <div class="form col-3">
+          <h1 class="form-title">Update</h1>
+            <form class="edit-form" action="/api/users/" method="post">
+                <div class="row is-wide">
+                    <label for="">Id</label>
+                    <input type="text" name="id" value="" disabled>
+                </div>
+                <div class="row is-wide">
+                    <label for="">Username</label>
+                    <input type="text" name="name" value="carl" disabled>
+                </div>
+                <div class="row is-wide">
+                    <label for="">Password</label>
+                    <input type="text" name="pwd" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <label for="">email</label>
+                    <input type="text" name="email" value="ly@gmail.com">
+                </div>
+                <div class="row is-wide">
+                    <label for="">tel</label>
+                    <input type="text" name="tel" value="(626)8584512">
+                </div>
+                <div class="row is-wide">
+                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
+                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
+                </div>
+            </form>
+            <div class="row">
+              <button id="submit-update" type="button" name="button">Async Submit</button>
+            </div>
+        </div>
+
+
+        <!-- :end form -->
+        <div class="form col-3">
+          <h1 class="form-title">Create</h1>
+            <form class="create-form" action="/api/users/" method="post">
+                <div class="row is-wide">
+                    <label for="">Username</label>
+                    <input type="text" name="name" value="carl">
+                </div>
+                <div class="row is-wide">
+                    <label for="">Password</label>
+                    <input type="text" name="pwd" value="12345611">
+                </div>
+                <div class="row is-wide">
+                    <label for="">email</label>
+                    <input type="text" name="email" value="ly@gmail.com">
+                </div>
+                <div class="row is-wide">
+                    <label for="">tel</label>
+                    <input type="text" name="tel" value="(626)8584512">
+                </div>
+                <div class="row is-wide">
+                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
+                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
+                </div>
+            </form>
+            <div class="row">
+              <button id="submit-create" type="button" name="button">Async Submit</button>
+            </div>
+        </div>
+        <!-- :end form -->
         <div class="form">
           <h1 class="form-title">Authenticate</h1>
             <form class="auth-form" action="/admin" >
@@ -66,74 +132,6 @@
             </div>
         </div>
         <!-- :end form -->
-
-        <div class="form">
-          <h1 class="form-title">Update</h1>
-            <form class="edit-form" action="/api/users/" method="post">
-                <div class="row is-wide">
-                    <label for="">Id</label>
-                    <input type="text" name="id" value="" disabled>
-                </div>
-                <div class="row is-wide">
-                    <label for="">Username</label>
-                    <input type="text" name="name" value="carl" disabled>
-                </div>
-                <div class="row is-wide">
-                    <label for="">Password</label>
-                    <input type="text" name="pwd" value="12345611">
-                </div>
-                <div class="row is-wide">
-                    <label for="">email</label>
-                    <input type="text" name="email" value="ly@gmail.com">
-                </div>
-                <div class="row is-wide">
-                    <label for="">tel</label>
-                    <input type="text" name="tel" value="(626)8584512">
-                </div>
-                <div class="row is-wide">
-                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
-                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
-                </div>
-            </form>
-            <div class="row">
-              <button id="submit-update" type="button" name="button">Async Submit</button>
-            </div>
-        </div>
-        <!-- :end form -->
-
-        <div class="form">
-          <h1 class="form-title">Create</h1>
-            <form class="create-form" action="/api/users/" method="post">
-                <div class="row is-wide">
-                    <label for="">Username</label>
-                    <input type="text" name="name" value="carl">
-                </div>
-                <div class="row is-wide">
-                    <label for="">Password</label>
-                    <input type="text" name="pwd" value="12345611">
-                </div>
-                <div class="row is-wide">
-                    <label for="">email</label>
-                    <input type="text" name="email" value="ly@gmail.com">
-                </div>
-                <div class="row is-wide">
-                    <label for="">tel</label>
-                    <input type="text" name="tel" value="(626)8584512">
-                </div>
-                <div class="row is-wide">
-                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
-                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
-                </div>
-            </form>
-            <div class="row">
-              <button id="submit-create" type="button" name="button">Async Submit</button>
-            </div>
-        </div>
-        <!-- :end form -->
-        <div class="form">
-          <button type="button" name="button" onclick="location.href='/logout'">Async logout</button>
-        </div>
-
 
     </body>
 </html>
