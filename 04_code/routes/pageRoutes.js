@@ -4,9 +4,6 @@ var path = require('path');
 var passport = require("passport");
 var userController = require("../controllers/userController");
 
-// pass passport for configuration
-require("../configs/passport")(passport);
-
 //Page deal
 function pageDeal(req, res , backJson){
 var backName = req.path.match(/\w+/);
@@ -14,6 +11,12 @@ var backStr = backName?backName[0]:"index";
 
   res.render(backStr, backJson);
 }
+
+//Authenticate user login
+var isAuthenticated = function(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/login.html');
+};
 
 // Page control
 app.get(["/","/index.html"],function(req, res){
@@ -23,7 +26,7 @@ app.get(["/","/index.html"],function(req, res){
 });
 
 //api page
-app.get(["/admin/","/admin/index.html"],function(req, res){
+app.get(["/admin/","/admin/index.html"], isAuthenticated, function(req, res){
     pageDeal(req, res , {
         title:"CRUD"
     })
@@ -41,8 +44,24 @@ app.get(["/login.html"],function(req, res){
     })
 });
 //login
-app.get("/login", passport.authenticate('local-login'), function(req, res){
-  res.json(req.user);
+app.get("/login", function(req, res, next){
+    passport.authenticate('local-login', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) { return res.send({success: "", erro: "No User"});}
+
+        req.logIn(user, function(err) {
+          if (err) { return next(err); }
+          return res.send({success: "success", erro: ""});
+        });
+  })(req, res, next);
+});
+
+// redirect path
+app.get("/direct-error", function(req, res){
+    res.send({error:"error", success:""});
+});
+app.get("/direct-success", function(req, res){
+    res.send({error:"", success:"success"});
 });
 
 //login
