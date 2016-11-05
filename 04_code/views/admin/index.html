@@ -127,15 +127,15 @@
           </div>
           <div class="col-3">
             <div class="form">
-              <h1 class="form-title">Upload Files</h1>
-                <form action="/upload" method="post" enctype="multipart/form-data">
+              <h1 class="form-title">Upload Photo</h1>
+                <form id="form-photo" action="/upload.photo" method="post" enctype="multipart/form-data">
                     <div class="row is-wide">
                       <label for="">Name</label>
-                      <input id="file-upload" type="file" name="name" value="">
+                      <input id="photo" type="file" name="photo" value="">
                     </div>
                 </form>
                 <div class="row">
-                  <button id="submit-file">Async Submit</button>
+                  <button id="submit-photo">Async Submit</button>
                 </div>
             </div>
             <!-- :end form -->
@@ -147,6 +147,31 @@
     </body>
 </html>
 <script type="text/javascript">
+// :start submit photo
+
+var files;
+// Add events
+$('input[type=file]').on('change', function(event){
+  files = event.target.files;
+});
+
+$("#submit-photo").click(function(){
+
+      // Create a formdata object and add the files
+      var data = new FormData($("#form-photo"));
+
+      $.ajax({
+          url: "/upload.photo",
+          type: 'POST',
+          data: data,
+          processData: false, // Don't process the files
+          contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+          success: function(data, textStatus, jqXHR){
+          },
+          error: function(jqXHR, textStatus, errorThrown){
+          }
+      });
+})
 
 // :start submit authenticate
 $("#submit-auth").click(function(){

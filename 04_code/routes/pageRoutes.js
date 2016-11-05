@@ -1,8 +1,11 @@
 var app = require("express")();
+var configs = require("../configs");
 var Account = require("../models/userModel");
 var path = require('path');
 var passport = require("passport");
 var userController = require("../controllers/userController");
+var multer = require("multer");
+var upload = multer({dest: configs.uploadAddress});
 
 //Page deal
 function pageDeal(req, res , backJson){
@@ -25,14 +28,19 @@ app.get(["/","/index.html"],function(req, res){
   })
 });
 
-//api page
+//admin page
 app.get(["/admin/","/admin/index.html"], isAuthenticated, function(req, res){
-  console.log(req.user);
     pageDeal(req, res , {
         title: "Application Component",
         username: req.user.name
     })
 });
+
+// upload file
+app.post("/upload.photo",upload.array("photos", 12),function(req, res, next){
+  console.log(req.files);
+
+})
 
 // login controller
 app.get("/show",function(req, res){
