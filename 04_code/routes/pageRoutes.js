@@ -6,6 +6,8 @@ var passport = require("passport");
 var userController = require("../controllers/userController");
 var multer = require("multer");
 var upload = multer({dest: configs.uploadAddress});
+var bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 //Page deal
 function pageDeal(req, res , backJson){
@@ -39,7 +41,6 @@ app.get(["/admin/","/admin/index.html"], isAuthenticated, function(req, res){
 // upload file
 app.post("/upload.photo",upload.array("photos", 12),function(req, res, next){
   console.log(req.files);
-
 })
 
 // login controller
@@ -65,7 +66,17 @@ app.get("/login", function(req, res, next){
         });
   })(req, res, next);
 });
-
+//tools page
+app.get(["/tools.html"],function(req, res){
+    pageDeal(req, res , {
+        title:"Tools"
+    })
+});
+//tools
+app.get("/tools.encrypt", function(req, res){
+  console.log("tools.encrypt");
+    res.send(bcrypt.hashSync(req.query.code, saltRounds));
+});
 // redirect path
 app.get("/direct-error", function(req, res){
     res.send({error:"error", success:""});

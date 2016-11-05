@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="assets/css/test.css"/>
+    <script type="text/javascript" src="assets/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/Scripts/test.js"></script>
+  </head>
+  <body>
+    <h1 class="title">{{title}}</h1>
+    <!-- :start submit encrypt -->
+    <div class="form">
+      <h1 class="form-title">Encrypt</h1>
+        <form action="/login" >
+            <div class="row is-wide">
+                <label for="">Code</label>
+                <input id="code" type="text" name="code" value="12345611">
+            </div>
+            <div class="row is-wide">
+                <label for="">Encrypt</label>
+                <input id="encrypt" type="text" name="encrpyt" value="">
+            </div>
+        </form>
+        <div class="row">
+          <button id="submit-encrypt" type="button" name="button">Async Submit</button>
+        </div>
+    </div>
+    <!-- :end submit encrypt -->
+
+  </body>
+</html>
+<script type="text/javascript">
+
+//:start submit encrypt
+$("#submit-encrypt").click(function(){
+    var code = $("#code").val(),
+    $encrypt = $("#encrypt");
+    console.log(code);
+    if(!code){return send("The code is required.")}
+    $.get("/tools.encrypt",{code: code},function(data){
+        send("Success.");
+        $encrypt.val(data);
+    })
+})
+
+</script>

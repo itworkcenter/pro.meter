@@ -23,7 +23,8 @@
                   <col style="width:30%">
                   <col style="width:20%">
                   <col style="width:10%">
-                  <col style="width:10%">
+                  <col style="width:5%">
+                  <col style="width:5%">
                   <col style="width:10%">
               </colgroup>
               <thead>
@@ -33,6 +34,7 @@
                       <th>email</th>
                       <th>tel</th>
                       <th>gender</th>
+                      <th>limit</th>
                       <th></th>
                   </tr>
               </thead>
@@ -54,19 +56,23 @@
                     </div>
                     <div class="row is-wide">
                         <label for="">Username</label>
-                        <input type="text" name="name" value="carl" disabled>
+                        <input type="text" name="name" value="" disabled>
                     </div>
                     <div class="row is-wide">
                         <label for="">Password</label>
-                        <input type="text" name="pwd" value="12345611">
+                        <input type="text" name="pwd" value="">
                     </div>
                     <div class="row is-wide">
                         <label for="">email</label>
-                        <input type="text" name="email" value="ly@gmail.com">
+                        <input type="text" name="email" value="">
                     </div>
                     <div class="row is-wide">
                         <label for="">tel</label>
-                        <input type="text" name="tel" value="(626)8584512">
+                        <input type="text" name="tel" value="">
+                    </div>
+                    <div class="row is-wide">
+                      <label for="">Limit</label>
+                      <input type="text" name="limit" value="">
                     </div>
                     <div class="row is-wide">
                         <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
@@ -98,6 +104,10 @@
                     <div class="row is-wide">
                         <label for="">tel</label>
                         <input type="text" name="tel" value="(626)8584512">
+                    </div>
+                    <div class="row is-wide">
+                      <label for="">Limit</label>
+                      <input type="text" name="limit" value="1">
                     </div>
                     <div class="row is-wide">
                         <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
@@ -207,7 +217,8 @@ $("#submit-create").click(function(){
               pwd: $(".create-form [name='pwd']").val(),
               email: $(".create-form [name='email']").val(),
               tel: $(".create-form [name='tel']").val(),
-              gender: $(".create-form [name='gender']:checked").val()
+              gender: $(".create-form [name='gender']:checked").val(),
+              limit: $(".create-form [name='limit']").val()
           },
           type: 'post',
           success: function(result) {
@@ -230,7 +241,8 @@ $("#submit-update").click(function(){
               pwd: $(".edit-form [name='pwd']").val(),
               email: $(".edit-form [name='email']").val(),
               tel: $(".edit-form [name='tel']").val(),
-              gender: $(".edit-form [name='gender']:checked").val()
+              gender: $(".edit-form [name='gender']:checked").val(),
+              limit: $(".edit-form [name='limit']").val()
           },
           type: 'put',
           success: function(result) {
@@ -249,7 +261,19 @@ function showUserList(){
         }
         for(var i in data){
             var json = data[i];
-            reslt += "<tr><td>"+json.name+"</td><td>"+json.pwd+"</td><td>"+json.email+"</td><td>"+json.tel+"</td><td>"+json.gender+"</td><td><button class='del-user' data-ids="+json._id+">del</button><button class='edit-user' data-ids="+json._id+">edit</button></td></tr>";
+            reslt += "<tr>"+
+            "<td>"+json.name+"</td>"+
+            "<td>"+json.pwd+"</td>"+
+            "<td>"+json.email+"</td>"+
+            "<td>"+json.tel+"</td>"+
+            "<td>"+json.gender+"</td>"+
+            "<td>"+json.limit+"</td>"+
+            "<td>";
+            if(json.limit != "0"){
+                reslt +="<button class='del-user' data-ids="+json._id+">del</button>";
+            }
+            reslt += "<button class='edit-user' data-ids="+json._id+">edit</button>"+
+                          "</td></tr>";
         }
 
         $("#user-list").html("").append(reslt);
@@ -280,8 +304,8 @@ $(document).on("click", ".edit-user", function(){
         $(".edit-form [name='name']").val(getVal(0).html());
         $(".edit-form [name='email']").val(getVal(2).html());
         $(".edit-form [name='tel']").val(getVal(3).html());
-        // $(".edit-form [name='gender']").attr("checked",false);
         $(".edit-form [name='gender'][value='"+getVal(4).html()+"']").click();
+        $(".edit-form [name='limit']").val(getVal(5).html());
 
 })
 

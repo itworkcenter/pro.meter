@@ -1,6 +1,5 @@
-var userModel = require('../models/userModel.js'),
-    bcrypt = require("bcrypt");
-
+var userModel = require('../models/userModel.js');
+var bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 // public function
@@ -74,18 +73,20 @@ module.exports = {
      */
     create: function (req, res) {
         var user = new userModel({
-			name : req.body.name,
-			pwd : bcrypt.hashSync(req.body.pwd, saltRounds),
-			email : req.body.email,
-			tel : req.body.tel,
+        			name : req.body.name,
+        			pwd : bcrypt.hashSync(req.body.pwd, saltRounds),
+        			email : req.body.email,
+        			limit : req.body.limit,
+        			tel : req.body.tel,
               gender: req.body.gender
         });
 
-
         //post method use req.body by body.parse;
         checkUser(req.body,function(json){
+
             if(!json.hasUser){
                 user.save(function (err, user) {
+                  console.log(err);
                     if (err) {
                         return res.status(500).json({
                             message: 'Error when creating user',
@@ -124,6 +125,7 @@ module.exports = {
 			user.email = req.body.email ? req.body.email : user.email;
 			user.tel = req.body.tel ? req.body.tel : user.tel;
 			user.gender = req.body.gender ? req.body.gender : user.gender;
+			user.limit = req.body.limit ? req.body.limit : user.limit;
 
             user.pwd = bcrypt.hashSync(user.pwd, saltRounds)
 

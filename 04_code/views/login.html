@@ -43,7 +43,7 @@ $("#submit-login").click(function(){
         if(data.success){
             location.href="/admin/";
         }else{
-            location.href="/login.html";
+            send("Error");
         }
 
     })

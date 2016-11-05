@@ -1,24 +1,8 @@
 {
     "name":"carl",
-    "pwd": "12345611",
+    "pwd": "$2a$10$jOnb5PAtKTsYFPj9Y/.E7.38KhfaR9Zj3PJnYM959Dqz62XKDMw1S",
     "email": "carl@mail.com",
-    "limit":1,
-    "tel": "6263258623",
-    "gender": "man"
-}
-{
-    "name":"Linda",
-    "pwd": "12345611",
-    "email": "carl@mail.com",
-    "limit":2,
-    "tel": "6263258623",
-    "gender": "man"
-}
-{
-    "name":"zhang",
-    "pwd": "12345611",
-    "email": "carl@mail.com",
-    "limit":3,
-    "tel": "6263258623",
+    "limit":"1",
+    "tel": "(626)3258623",
     "gender": "man"
 }
