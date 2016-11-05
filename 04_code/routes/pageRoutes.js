@@ -27,8 +27,10 @@ app.get(["/","/index.html"],function(req, res){
 
 //api page
 app.get(["/admin/","/admin/index.html"], isAuthenticated, function(req, res){
+  console.log(req.user);
     pageDeal(req, res , {
-        title:"CRUD"
+        title: "Application Component",
+        username: req.user.name
     })
 });
 

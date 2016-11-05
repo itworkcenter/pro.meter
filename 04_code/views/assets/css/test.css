@@ -25,9 +25,9 @@ body{
 }
 /* :start form style*/
 .form{
-    display: inline-block;
-    margin: 0 0 5px 0;
+    margin: 5px;
     padding: 15px;
+    border: 1px solid #eee;
     box-sizing: border-box;
     vertical-align: top;
 }
@@ -59,7 +59,8 @@ button{
   cursor: pointer;
 }
 /*:start row*/
- .row.is-wide input[type='text']{
+ .row.is-wide input[type='text'],
+ .row.is-wide input[type='file']{
     display: block;
     width: 100%;
     box-sizing: border-box;
@@ -97,6 +98,16 @@ button{
     text-align: left;
     color: #999;
     font-size: 12px;
+}
+/*:start section*/
+.section:before,
+.section:after{
+  content: " ";
+  display: table;
+  clear: both;
+}
+.section{
+  margin:10px 0 20px 0;
 }
 /*:start col*/
 [class*="col-"]{

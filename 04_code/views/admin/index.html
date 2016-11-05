@@ -10,128 +10,139 @@
     <body>
         <h1 class="title">{{title}}
             <div class="title-tools">
+              Welcome, {{username}}.
                 <button type="button" name="button" onclick="location.href='/logout'">Async logout</button>
             </div>
         </h1>
-        <table class="table">
-            <colgroup>
-                <col style="width:10%">
-                <col style="width:30%">
-                <col style="width:20%">
-                <col style="width:10%">
-                <col style="width:10%">
-                <col style="width:10%">
-            </colgroup>
-            <thead>
-                <tr>
-                    <th>name</th>
-                    <th>pwd</th>
-                    <th>email</th>
-                    <th>tel</th>
-                    <th>gender</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="user-list"></tbody>
-        </table>
 
-
-        <div class="form col-3">
-          <h1 class="form-title">Update</h1>
-            <form class="edit-form" action="/api/users/" method="post">
-                <div class="row is-wide">
-                    <label for="">Id</label>
-                    <input type="text" name="id" value="" disabled>
-                </div>
-                <div class="row is-wide">
-                    <label for="">Username</label>
-                    <input type="text" name="name" value="carl" disabled>
-                </div>
-                <div class="row is-wide">
-                    <label for="">Password</label>
-                    <input type="text" name="pwd" value="12345611">
-                </div>
-                <div class="row is-wide">
-                    <label for="">email</label>
-                    <input type="text" name="email" value="ly@gmail.com">
-                </div>
-                <div class="row is-wide">
-                    <label for="">tel</label>
-                    <input type="text" name="tel" value="(626)8584512">
-                </div>
-                <div class="row is-wide">
-                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
-                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
-                </div>
-            </form>
-            <div class="row">
-              <button id="submit-update" type="button" name="button">Async Submit</button>
-            </div>
+        <div class="section">
+          <div class="title">Table List</div>
+          <table class="table">
+              <colgroup>
+                  <col style="width:10%">
+                  <col style="width:30%">
+                  <col style="width:20%">
+                  <col style="width:10%">
+                  <col style="width:10%">
+                  <col style="width:10%">
+              </colgroup>
+              <thead>
+                  <tr>
+                      <th>name</th>
+                      <th>pwd</th>
+                      <th>email</th>
+                      <th>tel</th>
+                      <th>gender</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody id="user-list"></tbody>
+          </table>
         </div>
+        <!-- :end section -->
 
 
-        <!-- :end form -->
-        <div class="form col-3">
-          <h1 class="form-title">Create</h1>
-            <form class="create-form" action="/api/users/" method="post">
-                <div class="row is-wide">
-                    <label for="">Username</label>
-                    <input type="text" name="name" value="carl">
+        <div class="section">
+          <div class="title">Form</div>
+          <div class="col-3">
+            <div class="form">
+              <h1 class="form-title">Update</h1>
+                <form class="edit-form" action="/api/users/" method="post">
+                    <div class="row is-wide">
+                        <label for="">Id</label>
+                        <input type="text" name="id" value="" disabled>
+                    </div>
+                    <div class="row is-wide">
+                        <label for="">Username</label>
+                        <input type="text" name="name" value="carl" disabled>
+                    </div>
+                    <div class="row is-wide">
+                        <label for="">Password</label>
+                        <input type="text" name="pwd" value="12345611">
+                    </div>
+                    <div class="row is-wide">
+                        <label for="">email</label>
+                        <input type="text" name="email" value="ly@gmail.com">
+                    </div>
+                    <div class="row is-wide">
+                        <label for="">tel</label>
+                        <input type="text" name="tel" value="(626)8584512">
+                    </div>
+                    <div class="row is-wide">
+                        <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
+                        <input type="radio" name="gender" value="woman"><label for="">Woman</label>
+                    </div>
+                </form>
+                <div class="row">
+                  <button id="submit-update" type="button" name="button">Async Submit</button>
                 </div>
-                <div class="row is-wide">
-                    <label for="">Password</label>
-                    <input type="text" name="pwd" value="12345611">
-                </div>
-                <div class="row is-wide">
-                    <label for="">email</label>
-                    <input type="text" name="email" value="ly@gmail.com">
-                </div>
-                <div class="row is-wide">
-                    <label for="">tel</label>
-                    <input type="text" name="tel" value="(626)8584512">
-                </div>
-                <div class="row is-wide">
-                    <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
-                    <input type="radio" name="gender" value="woman"><label for="">Woman</label>
-                </div>
-            </form>
-            <div class="row">
-              <button id="submit-create" type="button" name="button">Async Submit</button>
             </div>
-        </div>
-        <!-- :end form -->
-        <div class="form">
-          <h1 class="form-title">Authenticate</h1>
-            <form class="auth-form" action="/admin" >
-                <div class="row is-wide">
-                  <label for="">Username</label>
-                  <input type="text" name="username" value="carl">
+            <!-- :end form -->
+          </div>
+          <div class="col-3">
+            <div class="form">
+              <h1 class="form-title">Create</h1>
+                <form class="create-form" action="/api/users/" method="post">
+                    <div class="row is-wide">
+                        <label for="">Username</label>
+                        <input type="text" name="name" value="carl">
+                    </div>
+                    <div class="row is-wide">
+                        <label for="">Password</label>
+                        <input type="text" name="pwd" value="12345611">
+                    </div>
+                    <div class="row is-wide">
+                        <label for="">email</label>
+                        <input type="text" name="email" value="ly@gmail.com">
+                    </div>
+                    <div class="row is-wide">
+                        <label for="">tel</label>
+                        <input type="text" name="tel" value="(626)8584512">
+                    </div>
+                    <div class="row is-wide">
+                        <input type="radio" name="gender" value="man" checked="checked"><label for="">Man</label>
+                        <input type="radio" name="gender" value="woman"><label for="">Woman</label>
+                    </div>
+                </form>
+                <div class="row">
+                  <button id="submit-create" type="button" name="button">Async Submit</button>
                 </div>
-                <div class="row is-wide">
-                  <label for="">Password</label>
-                  <input type="text" name="password" value="12345611">
-                </div>
-
-            </form>
-            <div class="row">
-              <button id="submit-auth" type="button" name="button">Async Submit</button>
             </div>
-        </div>
-        <!-- :end form -->
-
-        <div class="form">
-          <h1 class="form-title">Delete</h1>
-            <form action="/api/users" method="delete">
-                <div class="row is-wide">
-                  <label for="">Name</label>
-                  <input id="delete-id" type="text" name="id" value="">
+            <!-- :end form -->
+          </div>
+          <div class="col-3">
+            <div class="form">
+              <h1 class="form-title">Delete</h1>
+                <form action="/api/users" method="delete">
+                    <div class="row is-wide">
+                      <label for="">Name</label>
+                      <input id="delete-id" type="text" name="id" value="">
+                    </div>
+                </form>
+                <div class="row">
+                  <button id="submit-del">Async Submit</button>
                 </div>
-            </form>
-            <div class="row">
-              <button id="submit-del">Async Submit</button>
             </div>
+            <!-- :end form -->
+          </div>
+          <div class="col-3">
+            <div class="form">
+              <h1 class="form-title">Upload Files</h1>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="row is-wide">
+                      <label for="">Name</label>
+                      <input id="file-upload" type="file" name="name" value="">
+                    </div>
+                </form>
+                <div class="row">
+                  <button id="submit-file">Async Submit</button>
+                </div>
+            </div>
+            <!-- :end form -->
+          </div>
         </div>
-        <!-- :end form -->
+        <!-- :end section -->
+
 
     </body>
 </html>
