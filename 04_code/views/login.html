@@ -37,12 +37,13 @@ $("#submit-login").click(function(){
     var name = $("#name").val(),
     pass = $("#pwd").val();
 
-    $.get("/login",{username: name, password: pass},function(data, status){
+    $.get("/login",{username: name, password: pass},function(data){
         //send(data);
-        console.log(data);
-        console.log(status);
+        //console.log(data);
         if(data.success){
             location.href="/admin/";
+        }else{
+            location.href="/login.html";
         }
 
     })
