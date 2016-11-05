@@ -1,5 +1,5 @@
 var express = require('express');
-var session = require("express-sessions");
+var session = require("express-session");
 var app = express();
 var logger = require("morgan");
 var cookieParser = require("cookie-parser");
@@ -19,8 +19,12 @@ app.set('views',  path.join(__dirname + '/views'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(session({ secret: 'keyboard cat' }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+// pass passport for configuration
+require("./configs/passport")(passport);
 
 //Static assets
 app.use('/assets', express.static("views/assets"));
