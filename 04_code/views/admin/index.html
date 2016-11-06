@@ -60,7 +60,7 @@
                     </div>
                     <div class="row is-wide">
                         <label for="">Password</label>
-                        <input type="text" name="pwd" value="">
+                        <input type="text" name="pwd" value="12345611">
                     </div>
                     <div class="row is-wide">
                         <label for="">email</label>
@@ -138,10 +138,10 @@
           <div class="col-3">
             <div class="form">
               <h1 class="form-title">Upload Photo</h1>
-                <form id="form-photo" action="/upload.photo" method="post" enctype="multipart/form-data">
+                <form action="/upload" method="post" enctype="multipart/form-data">
                     <div class="row is-wide">
-                      <label for="">Name</label>
-                      <input id="photo" type="file" name="photo" value="">
+                      <label for="">File</label>
+                      <input id="file" type="file" name="photos">
                     </div>
                 </form>
                 <div class="row">
@@ -159,29 +159,29 @@
 <script type="text/javascript">
 // :start submit photo
 
-var files;
-// Add events
-$('input[type=file]').on('change', function(event){
-  files = event.target.files;
-});
-
 $("#submit-photo").click(function(){
 
-      // Create a formdata object and add the files
-      var data = new FormData($("#form-photo"));
+      var data = new FormData();
+      data.append("photos", $('#file')[0].files);
+      // $.each($('#file')[0].files, function(i, file) {
+      //     data.append("photos", file);
+      // });
 
       $.ajax({
-          url: "/upload.photo",
+          url: "/upload",
           type: 'POST',
+          contentType: 'multipart/form-data',
           data: data,
           processData: false, // Don't process the files
           contentType: false, // Set content type to false as jQuery will tell the server its a query string request
           success: function(data, textStatus, jqXHR){
+            send(data);
           },
           error: function(jqXHR, textStatus, errorThrown){
           }
       });
 })
+
 
 // :start submit authenticate
 $("#submit-auth").click(function(){

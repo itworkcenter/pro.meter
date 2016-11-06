@@ -15,7 +15,7 @@ app.engine('html', cons.swig);
 // set .html as the default extension
 app.set('view engine', 'html');
 app.set('views',  path.join(__dirname + '/views'));
-//app.use(logger("dev"));
+// app.use(logger("dev"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -42,7 +42,9 @@ app.use(['/','/**.html','/**/'], require("./routes/pageRoutes"));
 
 // Deal with Error
 app.use(function(err,req,res,next){
+
   if(err){
+    console.log(err);
     res.send('Bad Request');
     res.end();
   }else{

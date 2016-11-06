@@ -26,12 +26,10 @@ module.exports = function(passport){
   // Passport  strategy signup
   // ==============================================
   passport.use("local-login",new LocalStrategy(function(name, pwd, done){
+    
     console.log("----->local strategy");
 
       userModel.findOne({name: name}, function(err, user){
-        console.log(err);
-        console.log(user);
-
         if (err) {
            return done(err);
        }
@@ -41,10 +39,8 @@ module.exports = function(passport){
        }
 
        if(bcrypt.compareSync(pwd, user.pwd)){
-         console.log("ok");
                return done(null, user);
        }else{
-         console.log("Incorrect");
                return done(null, false,{alert: "Incorrect password."})
        }
 

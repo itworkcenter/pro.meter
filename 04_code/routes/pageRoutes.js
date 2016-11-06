@@ -5,7 +5,16 @@ var path = require('path');
 var passport = require("passport");
 var userController = require("../controllers/userController");
 var multer = require("multer");
-var upload = multer({dest: configs.uploadAddress});
+var storage = multer.diskStorage(
+    {
+        destination: configs.uploadAddress,
+        filename: function ( req, file, cb ) {
+            //req.body is empty... here is where req.body.new_file_name doesn't exists
+            cb( null, file.originalname );
+        }
+    }
+);
+var upload = multer({storage: storage});
 var bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -39,8 +48,10 @@ app.get(["/admin/","/admin/index.html"], isAuthenticated, function(req, res){
 });
 
 // upload file
-app.post("/upload.photo",upload.array("photos", 12),function(req, res, next){
-  console.log(req.files);
+app.post('/upload', upload.array('photos', 12), function (req, res, next) {
+  // req.files is array of `photos` files
+  // req.body will contain the text fields, if there were any
+  res.send("Uploaded")
 })
 
 // login controller
@@ -74,7 +85,6 @@ app.get(["/tools.html"],function(req, res){
 });
 //tools
 app.get("/tools.encrypt", function(req, res){
-  console.log("tools.encrypt");
     res.send(bcrypt.hashSync(req.query.code, saltRounds));
 });
 // redirect path

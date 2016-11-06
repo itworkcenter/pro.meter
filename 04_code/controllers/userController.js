@@ -63,7 +63,6 @@ module.exports = {
          });
      },
      checkUser: function (req, res) {
-       console.log("checkUser parent");
          checkUser(req.query,function(json){
              return res.json(json);
          })
@@ -86,7 +85,6 @@ module.exports = {
 
             if(!json.hasUser){
                 user.save(function (err, user) {
-                  console.log(err);
                     if (err) {
                         return res.status(500).json({
                             message: 'Error when creating user',
