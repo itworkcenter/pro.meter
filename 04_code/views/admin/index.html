@@ -141,7 +141,7 @@
                 <form action="/upload" method="post" enctype="multipart/form-data">
                     <div class="row is-wide">
                       <label for="">File</label>
-                      <input id="file" type="file" name="photos">
+                      <input id="file" type="file" name="photos" multiple>
                     </div>
                 </form>
                 <div class="row">
@@ -158,14 +158,11 @@
 </html>
 <script type="text/javascript">
 // :start submit photo
-
 $("#submit-photo").click(function(){
-
       var data = new FormData();
-      data.append("photos", $('#file')[0].files);
-      // $.each($('#file')[0].files, function(i, file) {
-      //     data.append("photos", file);
-      // });
+      $.each($('#file')[0].files, function(i, file) {
+          data.append("photos", file);
+      });
 
       $.ajax({
           url: "/upload",

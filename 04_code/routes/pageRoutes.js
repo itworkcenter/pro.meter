@@ -49,6 +49,7 @@ app.get(["/admin/","/admin/index.html"], isAuthenticated, function(req, res){
 
 // upload file
 app.post('/upload', upload.array('photos', 12), function (req, res, next) {
+  console.log(req.files);
   // req.files is array of `photos` files
   // req.body will contain the text fields, if there were any
   res.send("Uploaded")
