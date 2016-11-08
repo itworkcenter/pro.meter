@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <meta name="keywords" content="维度智能计量技术公司">
+    <link rel="stylesheet" href="CSS/reset.css" media="screen" title="no title">
+    <link rel="stylesheet" href="CSS/font-awesome.mini.css" media="screen" title="no title">
+    <link rel="stylesheet" href="CSS/base.css" media="screen" title="no title">
+    <link rel="stylesheet" href="CSS/jquery.swiper.min.css" media="screen" title="no title">
+
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.swiper.min.js"></script>
+
+  </head>
+  <body>
+    <div class="body-inner">
+      <div class="header">
+        <div class="header-inner">
+          <div class="header-info">
+            <div class="col-9">
+              <ul class="list is-inline">
+                <li><a href="#">网站地图</a></li>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">信箱</a></li>
+                <li><a href="login.html">登陆</a></li>
+                <li><a href="#">English</a></li>
+              </ul>
+            </div>
+            <div class="col-3">
+              <input type="text">
+              <button type="button" name="button">Search</button>
+            </div>
+          </div>
+          <div class="header-logo">
+            <a href="index.html">
+            <div class="header-logo-img"><img src="images/logo.png" alt="" /></div>
+            <h1 class="header-logo-title">维度智能计量技术公司</h1>
+            </a>
+          </div>
+          <div class="header-banner"></div>
+          <div class="header-nav">
+            <ul class="list is-inline is-menu">
+              <li><a href="index.html">网站首页</a></li>
+              <li><a href="#">概况简介</a></li>
+              <li><a href="#">研究系统</a></li>
+              <li><a href="#">管理系统</a></li>
+              <li><a href="category.list.html">支撑系统</a></li>
+              <li><a href="category.article.html">科研成果</a></li>
+              <li><a href="#">人才队伍</a></li>
+              <li><a href="#">合作交流</a></li>
+              <li><a href="#">产业</a></li>
+              <li><a href="#">科普</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pager">
+        <div class="pager-inner">
+            {% block content %}{% endblock %}
+        </div>
+      </div>
+      <!-- :end pager -->
+      <div class="footer">
+        <div class="footer-inner">
+          <div class="container">
+            <p>	CopyRight 1999-2016. Dalian Institute of Chemical Physics, Chinese Academy of Sciences.</p>
+            <p>维度智能计量技术公司 版权所有 All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+      <!-- :end footer -->
+    </div>
+  </body>
+</html>

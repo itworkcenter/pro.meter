@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{webName}}</title>
+    <meta name="keywords" content="维度智能计量技术公司">
+    <link rel="stylesheet" href="CSS/reset.css" media="screen" title="no title">
+    <link rel="stylesheet" href="CSS/font-awesome.mini.css" media="screen" title="no title">
+    <link rel="stylesheet" href="CSS/base.css" media="screen" title="no title">
+    <link rel="stylesheet" href="CSS/jquery.swiper.min.css" media="screen" title="no title">
+
+    <script type="text/javascript" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.swiper.min.js"></script>
+    <script type="text/javascript" src="scripts/test.js"></script>
+
+  </head>
+  <body class="login-page">
+    <div class="body-inner">
+      <div class="header">
+        <div class="header-inner">
+          <div class="header-logo">
+            <a href="index.html">
+            <div class="header-logo-img"><img src="images/logo.png" alt="" /></div>
+            <h1 class="header-logo-title">{{webName}}</h1>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pager">
+        <div class="pager-inner">
+          {% block content %} {% endblock%}
+        </div>
+      </div>
+      <!-- :end pager -->
+      <div class="footer">
+        <div class="footer-inner">
+          <div class="container">
+            <p>	CopyRight 1999-2016. Dalian Institute of Chemical Physics, Chinese Academy of Sciences.</p>
+            <p>{{webName}} 版权所有 All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+      <!-- :end footer -->
+    </div>
+  </body>
+</html>

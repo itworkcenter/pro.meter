@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="assets/css/test.css"/>
+    <script type="text/javascript" src="assets/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/Scripts/test.js"></script>
+  </head>
+  <body>
+      <!-- <h1 class="title">{{title}}</h1> -->
+    <!-- :start submit login -->
+    <div class="form col-3">
+      <h1 class="form-title">Login</h1>
+        <form action="/login" >
+            <div class="row is-wide">
+                <label for="">Username</label>
+                <input id="name" type="text" name="name" value="carl">
+            </div>
+            <div class="row is-wide">
+                <label for="">Password</label>
+                <input id="pwd" type="text" name="pwd" value="12345611">
+            </div>
+        </form>
+        <div class="row">
+          <button id="submit-login" type="button" name="button">Async Submit</button>
+        </div>
+    </div>
+    <!-- :end submit login -->
+
+  </body>
+</html>
+<script type="text/javascript">
+
+//:start submit login
+$("#submit-login").click(function(){
+    var name = $("#name").val(),
+    pass = $("#pwd").val();
+
+    $.get("/login",{username: name, password: pass},function(data){
+        //send(data);
+        //console.log(data);
+        if(data.success){
+            location.href="/admin/";
+        }else{
+            send("Error");
+        }
+
+    })
+
+})
+
+</script>

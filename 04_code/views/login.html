@@ -1,35 +1,30 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="assets/css/test.css"/>
-    <script type="text/javascript" src="assets/Scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/Scripts/test.js"></script>
-  </head>
-  <body>
-      <!-- <h1 class="title">{{title}}</h1> -->
-    <!-- :start submit login -->
-    <div class="form col-3">
-      <h1 class="form-title">Login</h1>
-        <form action="/login" >
-            <div class="row is-wide">
-                <label for="">Username</label>
-                <input id="name" type="text" name="name" value="carl">
-            </div>
-            <div class="row is-wide">
-                <label for="">Password</label>
-                <input id="pwd" type="text" name="pwd" value="12345611">
-            </div>
-        </form>
-        <div class="row">
-          <button id="submit-login" type="button" name="button">Async Submit</button>
+{% extends './layout/login.layout.html' %}
+{% block content %}
+<div class="container">
+  <div class="login-form">
+    <h1 class="title-x">用户登陆</h1>
+    <form action="">
+      <div class="form-cells">
+        <div class="form-cell">
+          <label for="" class="form-label is-row">用户名：</label>
+          <input id="name" class="form-text be-wide" type="text" name="name" value="carl">
         </div>
-    </div>
-    <!-- :end submit login -->
+        <div class="form-cell">
+          <label for="" class="form-label is-row">密码：</label>
+          <input id="pwd" class="form-text be-wide" type="password" name="pwd" value="12345611">
+        </div>
+        <div class="form-info">
+          <a href="#">忘记密码？</a>
+        </div>
+      </div>
+      <div class="form-bottom">
+        <button id="submit-login" class="btn btn--xx btn--primary" type="button" name="button">提交</button>
+      </div>
+    </form>
+  </div>
 
-  </body>
-</html>
+</div>
+<!-- :end container -->
 <script type="text/javascript">
 
 //:start submit login
@@ -49,5 +44,5 @@ $("#submit-login").click(function(){
     })
 
 })
-
 </script>
+{% endblock %}

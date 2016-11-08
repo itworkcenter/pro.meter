@@ -31,8 +31,9 @@ app.use(passport.session());
 require("./configs/passport")(passport);
 
 //Static assets
-app.use('/assets', express.static("views/assets"));
-app.use('/back/assets', express.static("views/back/assets"));
+app.use(express.static("public"));
+// app.use('/assets', express.static("views/assets"));
+// app.use('/back/assets', express.static("views/back/assets"));
 
 //API service
 app.use('/api', require("./routes/apiRoutes"));

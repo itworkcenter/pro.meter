@@ -1,0 +1,64 @@
+{% extends '../layout/admin.index.layout.html' %}
+{% block content %}
+<div class="container">
+  <div class="admin-tools">
+    <div class="row">
+      <div class="col-6">
+        数据API：
+        <button class="btn btn--xx btn--primary">添加</button>
+        <button class="btn btn--xx btn--primary">编辑</button>
+        <button class="btn btn--xx btn--primary">删除</button>
+      </div>
+    </div>
+  </div>
+  <div class="row has-side-left">
+    <div class="row-side">
+      <div class="block-x">
+        <div class="block-x-body">
+          <ul class="list is-button">
+            <li class="is-active"><a href="#"><input class="form-check" type="checkbox" name="name" value="">首页</a></li>
+            <li><a href="#"><input class="form-check" type="checkbox" name="name" value="">概况简介</a></li>
+            <li><a href="#"><input class="form-check" type="checkbox" name="name" value="">研究系统</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row-body">
+      <div class="row-body-inner">
+        <div class="row has-side-right">
+          <div class="row-body">
+            <div class="row-body-inner">
+              <div class="admin-tools">
+                <div class="row">
+                  <div class="col-9"><label class="form-label">页面类型：</label><input type="radio">Link <input type="radio">template</div>
+                  <div class="col-3">加载模板：<button class="btn btn--xx btn--info">加载</button></div>
+                </div>
+              </div>
+              <div class="admin-data-template">
+                control
+              </div>
+            </div>
+          </div>
+          <div class="row-side">
+            <div class="admin-data">
+              <div class="block-x">
+                <h3 class="block-x-header">
+                  <span class="block-x-header-title">选择数据模块：</span>
+                </h3>
+                <div class="block-x-body">
+                  <ul class="list is-data">
+                    <li><a href="#">综合新闻-list-top10</a></li>
+                    <li><a href="#">今日活动-list-top10</a></li>
+                    <li><a href="#">概况介绍-subclass</a></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

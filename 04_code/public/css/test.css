@@ -1,0 +1,154 @@
+*{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+a{
+    color: #222;
+}
+body{
+    padding: 20px;
+}
+.title:before,
+.title:after{
+    content: " ";
+    display: table;
+    clear: both;
+}
+.title{
+  margin:2px 0 5px 0;
+  font-size: 16px;
+  color: #999;
+}
+.title-tools{
+  float: right;
+}
+/* :start form style*/
+.form{
+    margin: 5px;
+    padding: 15px;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+.form-title{
+  font-size: 16px;
+  font-weight: 100;
+  color: #666;
+}
+.form label{
+    color: #ccc;
+    font-size: 12px;
+}
+.form input[type="text"]{
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+}
+form input[type="radio"]{
+    margin-right: 5px;
+}
+input[type="submit"],
+button{
+    margin: 2px 4px;
+  padding: 5px 8px;
+  color: #999;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #eee;
+  cursor: pointer;
+}
+/*:start row*/
+ .row.is-wide input[type='text'],
+ .row.is-wide input[type='file']{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+.row{
+    margin: 10px 0;
+}
+.row:before,
+.row:after{
+    content: " ";
+    display: table;
+    clear: both;
+}
+/*:start table*/
+.table{
+    margin: 5px 0;
+    border: 1px solid #eee;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.table thead{
+
+}
+.table thead th{
+    font-weight: 100;
+    color: #ccc;
+}
+.table tr{
+    border-top: 1px solid #eee;
+}
+.table th,
+.table td{
+    padding: 5px 8px;
+    border-left: 1px solid #eee;
+    text-align: left;
+    color: #999;
+    font-size: 12px;
+}
+/*:start section*/
+.section:before,
+.section:after{
+  content: " ";
+  display: table;
+  clear: both;
+}
+.section{
+  margin:10px 0 20px 0;
+}
+/*:start col*/
+[class*="col-"]{
+    display: inline-block;
+    margin:0  -2px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+.col-12 {
+    width: 100%;
+}
+.col-11 {
+    width: 91.6666%;
+}
+.col-10 {
+    width: 83.3333%;
+}
+.col-9 {
+    width: 75%;
+}
+.col-8 {
+    width: 66.6667%;
+}
+.col-7 {
+    width: 58.3333%;
+}
+.col-6 {
+    width: 50%;
+}
+.col-5 {
+    width: 41.6666%;
+}
+.col-4 {
+    width: 33.3333%;
+}
+.col-3 {
+    width: 25%;
+}
+.col-2 {
+    width: 16.6667%;
+}
+.col-1 {
+    width: 8.3333%;
+}

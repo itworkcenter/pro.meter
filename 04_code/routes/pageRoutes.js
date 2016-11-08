@@ -4,6 +4,7 @@ var Account = require("../models/userModel");
 var path = require('path');
 var passport = require("passport");
 var userController = require("../controllers/userController");
+var settingsController = require("../controllers/settingsController");
 var multer = require("multer");
 var storage = multer.diskStorage(
     {
@@ -20,10 +21,11 @@ const saltRounds = 10;
 
 //Page deal
 function pageDeal(req, res , backJson){
-var backName = req.path.match(/\w+/);
-var backStr = backName?backName[0]:"index";
+var backName = req.path.match(/[\w-\/]+/);
+backName = backName.length>0?backName[0]:"index";
+backName = backName.replace(/^\//,"");
 
-  res.render(backStr, backJson);
+  res.render(backName, backJson);
 }
 
 //Authenticate user login
@@ -39,13 +41,40 @@ app.get(["/","/index.html"],function(req, res){
   })
 });
 
-//admin page
+//Admin page
 app.get(["/admin/","/admin/index.html"], isAuthenticated, function(req, res){
-    pageDeal(req, res , {
-        title: "Application Component",
-        username: req.user.name
-    })
+  configs.userName = req.user.name;
+    pageDeal(req, res , configs)
 });
+app.get("/admin/admin-part.html", isAuthenticated, function(req, res){
+  configs.userName = req.user.name;
+    pageDeal(req, res , configs)
+});
+app.get("/admin/admin-data.html", isAuthenticated, function(req, res){
+  configs.userName = req.user.name;
+    pageDeal(req, res , configs)
+});
+app.get("/admin/admin-category.html", isAuthenticated, function(req, res){
+  configs.userName = req.user.name;
+    pageDeal(req, res , configs)
+});
+app.get("/admin/admin-article.html", isAuthenticated, function(req, res){
+  configs.userName = req.user.name;
+    pageDeal(req, res , configs)
+});
+app.get("/admin/admin-user.html", isAuthenticated, function(req, res){
+  configs.userName = req.user.name;
+    pageDeal(req, res , configs)
+});
+
+// Page controller
+app.get("/settings", isAuthenticated, function(req, res){
+  console.log(req.query);
+  settingsController.update(req, res);
+  // configs.userName = req.user.name;
+  //   pageDeal(req, res , configs)
+});
+
 
 // upload file
 app.post('/upload', upload.array('photos', 12), function (req, res, next) {
@@ -62,9 +91,7 @@ app.get("/show",function(req, res){
 
 //login page
 app.get(["/login.html"],function(req, res){
-    pageDeal(req, res , {
-        title:"Login"
-    })
+    pageDeal(req, res , configs)
 });
 //login
 app.get("/login", function(req, res, next){
