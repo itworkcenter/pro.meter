@@ -1,3 +1,0 @@
-54.171.94.70 - - [10/Nov/2016:17:51:27 -0800] "GET / HTTP/1.1" 200 166917 "-" "python-requests/2.11.1" "universal-smart-technology.org"
-180.76.15.140 - - [11/Nov/2016:15:54:07 -0800] "GET /robots.txt HTTP/1.1" 404 89 "-" "Mozilla/5.0 (Windows NT 5.1; rv:6.0.2) Gecko/20100101 Firefox/6.0.2" "www.universal-smart-technology.org"
-63.243.252.80 - - [11/Nov/2016:15:58:31 -0800] "GET / HTTP/1.1" 200 166917 "-" "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)" "www.universal-smart-technology.org"
