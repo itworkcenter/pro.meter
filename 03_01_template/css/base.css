@@ -124,11 +124,21 @@ select{
   display: none;
 }
 .header-nav-sub > li > a{
+  position: relative;
   display: inline-block;
   vertical-align: top;
   padding: 0 20px;
   margin-left: 1px;
   color: #ddd;
+}
+.header-nav-sub > li > a:hover:before,
+.header-nav-sub > li > a.active:before{
+  content: "\f138";
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  margin-right: 5px;
+  font: normal normal normal 14px/1 FontAwesome;
 }
 
 .section-top{
@@ -203,6 +213,12 @@ select{
   text-transform: uppercase;
   color: white;
 }
+.box-show-content:before,
+.box-show-content:after{
+  content: "";
+  display: table;
+  clear: both;
+}
 .box-show-content{
   padding: 10px;
 }
@@ -213,12 +229,31 @@ select{
   background-color: #3e7c7b;
 }
 /*:start module*/
+.article{
+  padding: 15px;
+}
+.article p{
+  margin-bottom: 20px;
+}
 .form-row{
   margin: 5px 0;
 }
 .form-row > input{
+  box-sizing: border-box;
   vertical-align: middle;
 }
+.form-row > label{
+  display: inline-block;
+  margin: 10px 0 5px 0;
+  font-weight: bold;
+}
+.form-row.wide > select,
+.form-row.wide > textarea,
+.form-row.wide > input{
+  width: 100%;
+  vertical-align: middle;
+}
+
 
 .nrow:after, .nrow:before {
     content: " ";
