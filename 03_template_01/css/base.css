@@ -21,7 +21,7 @@ select{
 .section-top-inner{
   position: relative;
   margin:0 auto;
-  width: 962px;
+  width: 1024px;
 }
 .header-top{
   background: white url("../images/header_bg.gif");
@@ -253,50 +253,44 @@ select{
   width: 100%;
   vertical-align: middle;
 }
-
-
-.nrow:after, .nrow:before {
-    content: " ";
-    display: table;
-    clear: both;
+/*:start membership*/
+.user-info{}
+.user-info-photo{
+  margin: 0 auto;
+  max-width: 150px;
 }
-[class*="ncol"]{
-    float: left;
-    box-sizing: border-box;
+.user-info-photo img{
+  width: 100%;
 }
-.ncol-12 {
-    width: 100%;
+.user-info-list li + li{
+  margin-top: 10px;
 }
-.ncol-11 {
-    width: 91.6666%;
+.user-info-menu{
+  margin-top: 20px;
+  background-color: #eee;
 }
-.ncol-10 {
-    width: 83.3333%;
+.user-info-menu li a{
+  display: block;
+  padding:5px 10px 5px 5px;
 }
-.ncol-9 {
-    width: 75%;
+.user-info-menu li.current a{
+  font-weight: bold;
 }
-.ncol-8 {
-    width: 66.6667%;
+/*:start user message*/
+.user-message .ntab.active{
+  font-weight: bold;
 }
-.ncol-7 {
-    width: 58.3333%;
+.user-message .ntab-pane{
+  padding: 15px 0;
 }
-.ncol-6 {
-    width: 50%;
+.table-box{
+  width:100%;
 }
-.ncol-5 {
-    width: 41.6666%;
+.table-box td{
+  padding: 10px;
+  border: 1px solid #eee;
 }
-.ncol-4 {
-    width: 33.3333%;
-}
-.ncol-3 {
-    width: 25%;
-}
-.ncol-2 {
-    width: 16.6667%;
-}
-.ncol-1 {
-    width: 8.3333%;
+.table-box thead td{
+  font-weight: bold;
+  background-color: #f0f0f0;
 }
