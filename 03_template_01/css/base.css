@@ -6,7 +6,12 @@ html,body,div,form,input,span,strong,i,p,ul,li,table,tr,td,button,textarea,selec
   list-style: none;
   text-decoration: none;
 }
+html{
+	height: 100%;
+}
 body{
+	height: auto;
+	min-height: 100%;
   color: #222;
   font: 13px arial, verdana, clean, sans-serif;
 }
@@ -302,6 +307,8 @@ select{
   font-weight: bold;
   background-color: #f0f0f0;
 }
+
+
 /*:start admin css*/
 .admin .header-inner,
 .admin .pager-inner,
@@ -357,7 +364,26 @@ select{
   font-size:18px;
   color: #ccc;
 }
-
+.admin .pager{
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	padding: 40px 0 20px 0;
+}
+.admin .pager-inner{
+	height:100%;
+}
+.admin .footer{
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:0;
+}
+.admin{
+	border: 1px solid red;
+}
 /*:start box page*/
 .box-page:before,
 .box-page:after{
