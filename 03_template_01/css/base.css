@@ -335,8 +335,19 @@ select{
 .admin-header-nav > li {
   float: left;
 }
+.admin-header-nav > li > a{
+  position: relative;
+}
 .admin-header-nav > li > a:hover{
   color: white;
+}
+.admin-header-nav > li > a.active:after{
+  content: "\f0d8";
+  position: absolute;
+  width: 0;
+  left: 50%;
+  bottom: -7px;
+  font: normal normal normal 24px/1 FontAwesome;
 }
 .admin-header-info{
   float: right;
