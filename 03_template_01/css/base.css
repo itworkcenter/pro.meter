@@ -312,7 +312,7 @@ select{
 /*:start admin css===============================================*/
 .admin{
   position: relative;
-  padding-bottom: 40px;
+  min-height: 100vh;
   height: auto;
   min-width: 290px;
   overflow: hidden;
@@ -379,6 +379,7 @@ select{
 }
 .box-page{
   position: relative;
+  padding-bottom: 30px;
 }
 .box-page-side{
   position: absolute;
