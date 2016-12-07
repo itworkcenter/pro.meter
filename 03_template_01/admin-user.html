@@ -16,12 +16,9 @@
           <i class="fa fa-th-large" aria-hidden="true"></i>
         </div>
         <ul class="admin-header-nav">
-          <li><a class="active" href="admin.html"><span>System</span></a></li>
-          <li><a href="service.html"><span>Users</span></a></li>
-          <li><a href="site.html"><span>Menus</span></a></li>
-          <li><a href="conference.html"><span>Contents</span></a></li>
-          <li><a href="help.html"><span>Components</span></a></li>
-          <li><a href="about.html"><span>Help</span></a></li>
+          <li><a href="admin.html"><span>System</span></a></li>
+          <li><a class="active" href="admin-user.html"><span>User</span></a></li>
+          <li><a href="admin-article.html"><span>Article</span></a></li>
         </ul>
         <div class="admin-header-info">
           <a href="#">Log out</a>
@@ -32,13 +29,20 @@
       <div class="box-page">
         <div class="box-page-side">
           <div class="box-show show--admin">
-            <div class="box-show-title">System</div>
+            <div class="box-show-title">User</div>
             <div class="box-show-content">
               <ul class="nlist nlist--border-row nlist--hover nlist--has-icon">
-                  <li class="nlist-item active">
+                  <li class="nlist-item">
+                      <a class="nlist-item-title" href="javascript:;" data-toggle="modal" data-target="#Modal1">
+                          <i class="to-icon fa fa-plus" ></i>
+                          <span class="to-text">Create</span>
+                          <i class="to-arrow fa fa-angle-right" ></i>
+                      </a>
+                  </li>
+                  <li class="nlist-item">
                       <a class="nlist-item-title" href="#">
-                          <i class="to-icon fa fa-cog" ></i>
-                          <span class="to-text">Settings</span>
+                          <i class="to-icon fa fa-list" ></i>
+                          <span class="to-text">Manage</span>
                           <i class="to-arrow fa fa-angle-right" ></i>
                       </a>
                   </li>
@@ -50,58 +54,33 @@
         <!-- :end box side -->
         <div class="box-page-content">
           <div class="box-show show--admin">
-            <div class="box-show-title">Settings</div>
+            <div class="box-show-title">User manage</div>
             <div class="box-show-content">
-              <form class="nform nform--horizontal" action="javascript:;">
-                  <div class="nrow nrow--gap">
-                      <div class="ncol-3">
-                          <div class="nform-unit unit--wide">
-                               <label class="nform-unit-title">Site Name:</label>
-                          </div>
-                      </div>
-                      <div class="ncol-9">
-                          <div class="nform-unit unit--wide">
-                            Universal Smart Technology Inc.
-                              <!-- <input type="text" class="nform-text"> -->
-                          </div>
-                      </div>
-                      <div class="ncol-3">
-                          <div class="nform-unit unit--wide">
-                               <label class="nform-unit-title">Password</label>
-                          </div>
-                      </div>
-                      <div class="ncol-9">
-                          <div class="nform-unit">
-                              <input type="password" class="nform-text" >
-                          </div>
-                      </div>
-                      <div class="ncol-3">
-                          <div class="nform-unit unit--wide">
-                               <label class="nform-unit-title">Keywords</label>
-                          </div>
-                      </div>
-                      <div class="ncol-9">
-                          <div class="nform-unit">
-                            Shower, meta shower
-                              <!-- <input type="text" class="nform-text"> -->
-                          </div>
-                      </div>
-                      <div class="ncol-3">
-                          <div class="nform-unit unit--wide">
-                               <label class="nform-unit-title">logo</label>
-                          </div>
-                      </div>
-                      <div class="ncol-9">
-                          <div class="nform-unit">
-                              <input type="file" class="nform-text" >
-                          </div>
-                      </div>
+              <table class="ntable ntable--striped">
+                            <colgroup>
+                                <col style="width:20%">
+                                <col style="width:20%">
+                                <col style="width:20%">
+                                <col style="width:20%">
+                            </colgroup>
+	                        <thead>
+	                            <tr>
+	                                <th>Name</th>
+	                                <th>mail</th>
+	                                <th>tel</th>
+	                                <th>level</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr>
+	                                <td><a href="#fakelink" class="btn-link">Carl</a></td>
+	                                <td>carl@xx.com</td>
+	                                <td>(909)8006000</td>
+	                                <td><button class="nbtn nbtn-x nbtn--success">Edit</button> <button class="nbtn nbtn-x nbtn--warning">Delete</button></td>
+	                            </tr>
 
-                      <div class="ncol-12 ntext-right">
-                          <button class="nbtn nbtn--primary" type="button" name="button">Submit</button>
-                      </div>
-                  </div>
-              </form>
+	                        </tbody>
+	                    </table>
             </div>
           </div>
         </div>
@@ -122,5 +101,59 @@
     <!-- :end footer -->
 
   </div>
+  <div id="Modal1" class="nmodal" tabindex="-1" role="dialog">
+      <div class="nmodal-box">
+            <div class="nmodal-box-header">
+                <div class="to-tool">
+                    <button class="nbtn nbtn--circle nmodal-close" type="button">
+                        <i class="fa fa-times"></i>
+                        <span class="close"></span>
+                    </button>
+                </div>
+                <h4 class="to-title">Create a User</h4>
+
+            </div>
+            <div class="nmodal-box-body">
+              <form class="nform" action="javascript:;">
+                    <div class="nrow nrow--gap">
+                        <div class="ncol-6">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Name</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                        </div>
+                        <div class="ncol-6">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Email</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                        </div>
+                        <div class="ncol-6">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Tel</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                        </div>
+                        <div class="ncol-6">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Level</label>
+                                <div class="nform-select">
+                                  <select title="Select a Country">
+                          					<option selected="selected">Administrator</option>
+                          					<option>Article manager</option>
+                      				    </select>
+                                  <i class="fa fa-caret-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="nmodal-box-footer">
+              <button type="button" class="nbtn nbtn--default nmodal-close">Cancel</button>
+              <button type="button" class="nbtn nbtn--primary">Save</button>
+            </div>
+      </div>
+    </div>
   </body>
 </html>

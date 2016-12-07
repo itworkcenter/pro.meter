@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Agoracom: Small Cap Investment</title>
+    <link rel="stylesheet" href="http://jnose.com/dist/css/jnose.min.css"/>
+    <script type="text/javascript" src="http://jnose.com/dist/scripts/jnose.min.js"></script>
+		<link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/font-awesome.mini.css"/>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <div class="admin">
+      <div class="admin-header">
+        <div class="admin-header-logo">
+          <i class="fa fa-th-large" aria-hidden="true"></i>
+        </div>
+        <ul class="admin-header-nav">
+          <li><a href="admin.html"><span>System</span></a></li>
+          <li><a href="admin-user.html"><span>User</span></a></li>
+          <li><a class="active" href="admin-article.html"><span>Article</span></a></li>
+        </ul>
+        <div class="admin-header-info">
+          <a href="#">Log out</a>
+        </div>
+      </div>
+    <!-- :end header -->
+    <div class="admin-body">
+      <div class="box-page">
+        <div class="box-page-side">
+          <div class="box-show show--admin">
+            <div class="box-show-title">Article</div>
+            <div class="box-show-content">
+              <ul class="nlist nlist--border-row nlist--hover nlist--has-icon">
+                  <li class="nlist-item">
+                      <a class="nlist-item-title" href="javascript:;" data-toggle="modal" data-target="#Modal1">
+                          <i class="to-icon fa fa-plus" ></i>
+                          <span class="to-text">Create</span>
+                          <i class="to-arrow fa fa-angle-right" ></i>
+                      </a>
+                  </li>
+                  <li class="nlist-item">
+                      <a class="nlist-item-title" href="#">
+                          <i class="to-icon fa fa-list" ></i>
+                          <span class="to-text">Manage</span>
+                          <i class="to-arrow fa fa-angle-right" ></i>
+                      </a>
+                  </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+        <!-- :end box side -->
+        <div class="box-page-content">
+          <div class="box-show show--admin">
+            <div class="box-show-title">Article manage</div>
+            <div class="box-show-content">
+              <table class="ntable ntable--striped">
+                            <colgroup>
+                                <col style="width:30%">
+                                <col style="width:40%">
+                                <col style="width:20%">
+                                <col style="width:10%">
+                            </colgroup>
+	                        <thead>
+	                            <tr>
+	                                <th>Title</th>
+	                                <th>Content</th>
+	                                <th>Create Time</th>
+	                                <th></th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <tr>
+	                                <td><a href="#fakelink" class="btn-link">Carl</a></td>
+	                                <td>carl@xx.com</td>
+	                                <td>10/25/2016 20:52:23</td>
+	                                <td><button class="nbtn nbtn-x nbtn--success">Edit</button> <button class="nbtn nbtn-x nbtn--warning">Delete</button></td>
+	                            </tr>
+
+	                        </tbody>
+	                    </table>
+            </div>
+          </div>
+        </div>
+        <!-- :end box content -->
+      </div>
+      <!-- :end box -->
+    </div>
+
+    <div class="admin-footer">
+      <ul>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+        <li><a href="/about-and-contact">Contact</a></li>
+        <li><a href="/help-center">Help</a></li>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </div>
+    <!-- :end footer -->
+
+  </div>
+  <div id="Modal1" class="nmodal" tabindex="-1" role="dialog">
+      <div class="nmodal-box">
+            <div class="nmodal-box-header">
+                <div class="to-tool">
+                    <button class="nbtn nbtn--circle nmodal-close" type="button">
+                        <i class="fa fa-times"></i>
+                        <span class="close"></span>
+                    </button>
+                </div>
+                <h4 class="to-title">Create Article</h4>
+
+            </div>
+            <div class="nmodal-box-body">
+              <form class="nform" action="javascript:;">
+                    <div class="nrow nrow--gap">
+                        <div class="ncol-12">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Title</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                        </div>
+                        <div class="ncol-12">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Sub title</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                        </div>
+                        <div class="ncol-12">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Content</label>
+                                <textarea class="nform-textarea" name="name"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="nmodal-box-footer">
+              <button type="button" class="nbtn nbtn--default nmodal-close">Cancel</button>
+              <button type="button" class="nbtn nbtn--primary">Save</button>
+            </div>
+      </div>
+    </div>
+  </body>
+</html>

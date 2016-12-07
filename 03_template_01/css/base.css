@@ -314,7 +314,7 @@ select{
   position: relative;
   min-height: 100vh;
   height: auto;
-  min-width: 290px;
+  min-width: 800px;
   overflow: hidden;
 }
 .admin-header{
@@ -344,9 +344,11 @@ select{
 .admin-header-nav > li > a.active:after{
   content: "\f0d8";
   position: absolute;
-  width: 0;
   left: 50%;
   bottom: -7px;
+  margin-left: -5px;
+  width: 0;
+  color: white;
   font: normal normal normal 24px/1 FontAwesome;
 }
 .admin-header-info{
