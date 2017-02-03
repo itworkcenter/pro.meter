@@ -1,0 +1,12 @@
+{
+  "id":0,
+  "level_name":"Administrator"
+}
+{
+  "id":1,
+  "level_name":"User"
+}
+{
+  "id":2,
+  "level_name":"Guest"
+}

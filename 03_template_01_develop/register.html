@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Agoracom: Small Cap Investment</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/font-awesome.mini.css"/>
+    <link rel="stylesheet" href="http://jnose.com/dist/css/jnose.min.css"/>
+    <script type="text/javascript" src="http://jnose.com/dist/scripts/jnose.min.js"></script>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <div class="header">
+      <div class="header-top">
+        <div class="header-inner">
+          <div class="header-logo">
+            <a href="/"><img alt="Agoracom Logo" src="images/logo.gif?2133232"></a>
+          </div>
+          <div class="header-ad"></div>
+          <ul class="header-info">
+              <li><a href="index.html" class="home">Home</a></li>
+              <li><a href="javascript:;" class="middle" data-toggle ="modal" data-target="#Login">Sign In</a></li>
+              <li><a href="register.html" class="last">Register</a></li>
+          </ul>
+          <div id="Login" class="nmodal" tabindex="-1">
+            <div class="nmodal-box">
+                  <div class="nmodal-box-header">
+                      <div class="to-tool">
+                          <button class="nbtn nbtn--circle nmodal-close" type="button">
+                              <i class="fa fa-times" ></i>
+                              <span class="close"></span>
+                          </button>
+                      </div>
+                      <h4 class="to-title">Sign In</h4>
+                  </div>
+                  <div class="nmodal-box-body">
+                    <form class="nform nform--horizontal" action="javascript:;">
+                          <div class="nrow nrow--gap">
+                              <div class="ncol-3">
+                                  <div class="nform-unit unit--wide">
+                                       <label class="nform-unit-title">Email</label>
+                                  </div>
+                              </div>
+                              <div class="ncol-9">
+                                  <div class="nform-unit unit--wide">
+                                      <input type="text" class="nform-text" placeholder="Enter email">
+                                  </div>
+                              </div>
+                              <div class="ncol-3">
+                                  <div class="nform-unit unit--wide">
+                                       <label class="nform-unit-title">Password</label>
+                                  </div>
+                              </div>
+                              <div class="ncol-9">
+                                  <div class="nform-unit unit--wide">
+                                      <input type="text" class="nform-text" placeholder="Password">
+                                  </div>
+                              </div>
+                              <div class="ncol-3"></div>
+                              <div class="ncol-9">
+                                  <label class="nform-checkbox">
+                                      <input type="checkbox" name="c1" value="2">
+                                      <span class="nform-checkbox-title">Remember me</span>
+                                  </label>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                  <div class="nmodal-box-footer">
+                    <button type="button" class="nbtn nbtn--default nmodal-close">Cancel</button>
+                    <button class="nbtn nbtn--primary" type="button" name="button" onclick="location.href='membership.html'">Submit</button>
+                  </div>
+            </div>
+          </div>
+          <div class="header-search">
+            <form action="/search" method="get">
+              <div class="form-row">
+                <input name="keywords" onblur="if(!this.value){this.value=this.title;this.style.color='#AAA'}" onfocus="if(this.value==this.title){this.value=this.style.color=''}" style="color: rgb(170, 170, 170);" title="Search Terms" type="text" value="Search Terms">
+                <input class="search_submit" name="" onclick="this.form.keywords.onfocus();this.form.submit();return false" src="images/button_search.gif?1435161182" type="image">
+              </div>
+              <div class="form-row">
+                <select name="search_type">
+                  <option value="company">Search by Company Name or Symbol</option>
+                  <option value="member">Search by Member Username</option>
+                  <option value="keyword">Keyword Search</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="header-nav">
+        <div class="header-inner">
+            <ul class="header-nav-main">
+              <li><a class="active" href="index.html"><span>For Investors</span></a></li>
+              <li><a href="service.html"><span>Public Company Services</span></a></li>
+              <li><a href="site.html"><span>Our Sites</span></a></li>
+              <li><a href="conference.html"><span>Conferences</span></a></li>
+              <li><a href="help.html"><span>Quick Tips</span></a></li>
+              <li><a href="about.html"><span>About / Contact Us</span></a></li>
+            </ul>
+            <ul class="header-nav-sub">
+              <li><a href="/#cap_news" class="active"><span>Today's Small Cap News</span></a></li>
+              <li><a href="/marketplace"><span>Small Cap Marketplace</span></a></li>
+              <li><a href="/broadcastcenter"><span>Broadcast Center</span></a></li>
+              <li><a href="/hub_requests/new"><span>Request A New Hub</span></a></li>
+            </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pager">
+      <div class="pager-inner">
+        <div class="nrow">
+          <div class="ncol-6">
+            <div class="box-show show--green">
+              <div class="box-show-title">REGISTER</div>
+              <div class="box-show-content">
+                <form class="nform" action="javascript:;">
+                      <div class="nrow nrow--gap">
+                          <div class="ncol-12">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Username</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                          </div>
+                          <div class="ncol-12">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Email</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                          </div>
+                          <div class="ncol-12">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Password</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                          </div>
+                          <div class="ncol-12">
+                            <div class="nform-unit unit--wide">
+                                <label class="nform-unit-title">Password Confirm</label>
+                                <input type="text" class="nform-text">
+                            </div>
+                          </div>
+                          <div class="ncol-12 ntext-right">
+                              <button class="nbtn nbtn--primary" type="button" name="button" onclick="location.href='membership.html'">Submit</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+          </div>
+          <div class="ncol-6">
+            <div class="box-show">
+              <div class="box-show-title">AGORACOM 6 RULES OF USE</div>
+              <div class="box-show-content">
+                <div class="article">
+                  <p>
+                  Participation in AGORACOM’s General Forums is a privilege and not a right. Though we have used a lighter side in getting our point across, contravention of any of the following will lead to automatic termination of forum privileges:
+                  <br>
+                  <br>
+                  To ensure your continued participation on AGORACOM, follow these 6 simple rules.
+                  </p>
+                  <p>
+                  <strong>1. PROFANITY -</strong>
+                  Swearing or use of foul language is strictly prohibited… in any language (We have 42 interpreters on staff to keep an eye on those International members). For the record, ##$!#&amp;% or any combination thereof is considered profanity.
+                  </p>
+                  <p>
+                  <strong>2. DEROGATORY COMMENTS TOWARDS OTHERS -</strong>
+                  Calling another member an idiot, clown, stupid, dumb, moron or ##x%x# for brains is strictly prohibited.
+                  </p>
+                  <p>
+                  <strong>3. OFF-TOPIC OR IRRELEVANT COMMENTS -</strong>
+                  Yep, nobody can believe what Donald Trump said today, or that Monica Lewinsky is more believable than Hillary, or the Dallas Cowboys keep crushing their fans (seriously though, it %*$#@ hurts). However, the main forums are not the place to discuss TV shows, politics or sports. … O.K. maybe a little sports. Please use the Off-Topic Forums
+                  </p>
+                  <p>
+                  <strong>4. SPAMMING OR CLAIMS OF INSIDER INFORMATION -</strong>
+                  Enough said… unless your brother in-law really is Jeff Bezo’s chauffeur.
+                  </p>
+                  <p>
+                  <strong>5. BASHING OR HYPING –</strong>
+                  Unsubstantiated claims of grandeur or impending doom are best left to Nostradamus as they will cost you some valuable points towards your rating. Also included in this category is repetition of the same question, fact or opinion over and over after a response has been provided or if there is currently no ascertainable answer.
+                  </p>
+                  <p>
+                  <strong>6. CAPS LOCK AND USE OF !!!!!!! -</strong>
+                  NOTHING AND WE MEAN NOTHING IS MORE AGGRAVATING AND ANNOYING THAN READING A POST THAT LOOKS LIKE THIS!!!!!! IF YOU HAVE SOMETHING TO SAY, IT DOESN’T BECOME ANYMORE NOTICEABLE WHEN YOU TYPE IT IN CAPS!!!!! IN FACT, MOST PEOPLE TEND TO IGNORE THESE KINDS OF POSTS!!!!... Exceptions will be made for those deserted on a deserted island (with a kick ass internet connection) and sending out a distress signal, or anyone who invested in WorldCom, Enron, Tyco, Nortel, Webvan, Pets.com or Sideware and needs to freak out every year.We trust the gist of our point has been made. Be good to your fellow members, respect their opinions and understand there will be different levels of expertise posting on these boards. Otherwise, kiss our privacy statement goodbye as we hand out your address and phone number to everyone you piss off… oops!
+                  </p>
+                  <p>
+                  Sincerely,
+                  <em>AGORACOM</em>
+                  </p>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-inner">
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+          <li><a href="/about-and-contact">Contact</a></li>
+          <li><a href="/help-center">Help</a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

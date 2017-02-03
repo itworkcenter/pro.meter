@@ -2,7 +2,7 @@
     "name":"carl",
     "pwd": "$2a$10$jOnb5PAtKTsYFPj9Y/.E7.38KhfaR9Zj3PJnYM959Dqz62XKDMw1S",
     "email": "carl@mail.com",
-    "limit":"1",
+    "level":0,
     "tel": "(626)3258623",
     "gender": "man"
 }
